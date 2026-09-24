@@ -176,10 +176,9 @@
     drawLayer(BG.base, 0.22, 1, 'rgba(16,22,32,.18)');
     drawLayer(BG.over, 0.45, 1, null);
     if (!$('optGround').checked) return;
-    // 地平线以下：地面
-    const g = bgx.createLinearGradient(0, groundY, 0, H);
-    g.addColorStop(0, '#2a2119'); g.addColorStop(1, '#100c09');
-    bgx.fillStyle = g; bgx.fillRect(-OVER, groundY, W + OVER * 2, H - groundY + OVER);
+    // 地平线以下：纯黑地面
+    bgx.fillStyle = '#000';
+    bgx.fillRect(-OVER, groundY, W + OVER * 2, H - groundY + OVER);
     bgx.strokeStyle = 'rgba(255,190,120,.22)'; bgx.lineWidth = 2;
     bgx.beginPath(); bgx.moveTo(-OVER, groundY); bgx.lineTo(W + OVER, groundY); bgx.stroke();
     // 地面纹理条（随镜头滚动）
@@ -187,11 +186,6 @@
     for (let i = 0; i < 9; i++) {
       const t = i / 9, yy = groundY + 8 + t * t * (H - groundY);
       bgx.beginPath(); bgx.moveTo(-OVER, yy); bgx.lineTo(W + OVER, yy); bgx.stroke();
-    }
-    bgx.strokeStyle = 'rgba(0,0,0,.25)';
-    const step = 96, off = -(((camX * bgSc) % step) + step) % step;
-    for (let x = off - OVER; x < W + OVER; x += step) {
-      bgx.beginPath(); bgx.moveTo(x, groundY); bgx.lineTo(x - 40, H + OVER); bgx.stroke();
     }
   }
 
