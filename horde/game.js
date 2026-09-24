@@ -190,17 +190,42 @@
   }
 
   // ---------------------------------------------------------------- 特效
+  // 粒子统一走 G.parts，按 k 分三种画法：
+  //   dot 圆点 · streak 拉长条（顺速度方向拖尾）· ring 命中冲击环
+  // glow 的用 lighter 叠加出辉光；血必须走普通混合，否则叠成粉白色。
+  const PART_CAP = 520;
+  const emit = p => { if (G.parts.length < PART_CAP) G.parts.push(p); };
+
   function blood(x, y, n, dir) {
     for (let i = 0; i < n; i++) {
-      G.parts.push({ x, y, vx: rnd(-160, 160) + (dir || 0) * 190, vy: rnd(60, 300),
-        r: rnd(1.6, 4.4), t: rnd(0.4, 0.9), life: 0.9, c: '#c0262f', g: 1500 });
+      const a = rnd(-0.95, 0.95) + (dir > 0 ? 0 : Math.PI);   // 以击退方向为轴的锥形
+      const sp = rnd(200, 720), big = Math.random() < 0.22;
+      const t = big ? rnd(0.7, 1.1) : rnd(0.35, 0.75);
+      emit({
+        k: Math.random() < 0.45 ? 'streak' : 'dot', glow: false,
+        x, y,
+        vx: Math.cos(a) * sp + (dir || 0) * 130,
+        vy: Math.abs(Math.sin(a)) * sp * 0.55 + rnd(60, 260),
+        r: big ? rnd(3.4, 6) : rnd(1.3, 3.4),
+        t, life: t,
+        c: big ? '#7e1220' : (Math.random() < 0.3 ? '#e04a52' : '#c0262f'),
+        g: 1500, drag: 2.4,
+      });
     }
   }
   function spark(x, y, n) {
     for (let i = 0; i < n; i++) {
-      G.parts.push({ x, y, vx: rnd(-260, 260), vy: rnd(-60, 220),
-        r: rnd(1, 2.4), t: 0.22, life: 0.22, c: '#ffd27a', g: 900 });
+      const a = rnd(0, Math.PI * 2), sp = rnd(140, 520), t = rnd(0.14, 0.32);
+      emit({ k: 'streak', glow: true, x, y,
+        vx: Math.cos(a) * sp, vy: Math.sin(a) * sp + 40,
+        r: rnd(0.8, 1.9), t, life: t,
+        c: Math.random() < 0.4 ? '#fff6d8' : '#ffc65a', g: 700, drag: 3.4 });
     }
+  }
+  // 命中冲击环（半径是世界单位，绘制时再乘 viewSc）
+  function shock(x, y, r0, r1, rgb) {
+    emit({ k: 'ring', glow: true, x, y, vx: 0, vy: 0, r: r0, r1,
+      t: 0.24, life: 0.24, c: rgb || '255,238,190', g: 0, drag: 0 });
   }
   function popText(x, y, s, c) {
     G.texts.push({ x, y, s, c: c || '#ffdf9a', t: 0.9, life: 0.9 });
@@ -210,7 +235,9 @@
 
   function updateParts(dt) {
     for (const p of G.parts) {
-      p.t -= dt; p.vy -= p.g * dt;
+      p.t -= dt;
+      if (p.g) p.vy -= p.g * dt;
+      if (p.drag) { const d = Math.max(0, 1 - p.drag * dt); p.vx *= d; p.vy *= d; }
       p.x += p.vx * dt; p.y += p.vy * dt;
       if (p.y < 0) { p.y = 0; p.vy *= -0.32; p.vx *= 0.6; }
     }
@@ -316,14 +343,17 @@
       if (hit) {
         b.t = 0;
         const dirx = Math.sign(b.vx) || 1;
-        blood(nx, ny, 7, dirx);
-        spark(nx, ny, 4);
+        blood(nx, ny, 9, dirx);
+        spark(nx, ny, 6);
+        shock(nx, ny, 4, 26, '255,240,200');
         G.hitstop = Math.max(G.hitstop, 0.028);
         const dead = hit.hurt(b.dmg, dirx, 150);
         if (dead) {
           G.kills++; G.combo++; G.comboT = 2.2;
           G.shake = Math.max(G.shake, hit.boss ? 14 : 5.5);
-          blood(hit.x, hit.boxH * 0.55, 22, dirx);
+          blood(hit.x, hit.boxH * 0.55, 26, dirx);
+          spark(hit.x, hit.boxH * 0.55, 10);
+          shock(hit.x, hit.boxH * 0.55, 8, 64, hit.boss ? '255,150,60' : '255,96,84');
           popText(hit.x, hit.boxH * 0.8, hit.boss ? 'BOSS 倒下' : '+1', hit.boss ? '#ff9a3c' : '#ffe9b0');
         }
       }
@@ -512,30 +542,74 @@
       while (x < W) { fx.drawImage(BG.front, x, y, w, h); x += w; }
       fx.globalAlpha = 1;
     }
-    // 粒子
-    for (const p of G.parts) {
-      const s = w2s(p.x, p.y);
-      fx.globalAlpha = Math.min(1, p.t / p.life * 1.6);
-      fx.fillStyle = p.c;
-      fx.beginPath(); fx.arc(s.x, s.y, p.r, 0, 7); fx.fill();
+    // 粒子：两趟——先画普通混合的血（叠 lighter 会发白），再叠发光的火花与冲击环
+    fx.lineCap = 'round';
+    for (let pass = 0; pass < 2; pass++) {
+      fx.globalCompositeOperation = pass ? 'lighter' : 'source-over';
+      for (const p of G.parts) {
+        if (p.glow !== !!pass) continue;
+        const s = w2s(p.x, p.y);
+        const raw = p.t / p.life, k = Math.min(1, raw * 1.7);
+        const R = Math.max(0.6, p.r * viewSc);
+        if (p.k === 'ring') {
+          const rr = (p.r + (p.r1 - p.r) * (1 - raw)) * viewSc;
+          fx.globalAlpha = k * 0.85;
+          fx.strokeStyle = 'rgba(' + p.c + ',' + (k * 0.9).toFixed(3) + ')';
+          fx.lineWidth = Math.max(1, 6 * raw * viewSc * 0.5);
+          fx.beginPath(); fx.arc(s.x, s.y, rr, 0, 7); fx.stroke();
+        } else if (p.k === 'streak') {
+          const sp = Math.hypot(p.vx, p.vy);
+          const len = Math.min(30, sp * 0.022) * viewSc;
+          const ux = sp > 1 ? p.vx / sp : 0, uy = sp > 1 ? -p.vy / sp : 0;  // 屏幕方向（y 向下）
+          const ex = s.x - ux * len, ey = s.y - uy * len;
+          fx.strokeStyle = p.c;
+          fx.globalAlpha = k * 0.42; fx.lineWidth = R * 2.4;
+          fx.beginPath(); fx.moveTo(s.x, s.y); fx.lineTo(ex, ey); fx.stroke();
+          fx.globalAlpha = k; fx.lineWidth = R;
+          fx.beginPath(); fx.moveTo(s.x, s.y); fx.lineTo(ex, ey); fx.stroke();
+        } else {
+          fx.fillStyle = p.c;
+          fx.globalAlpha = k * 0.32;
+          fx.beginPath(); fx.arc(s.x, s.y, R * 2, 0, 7); fx.fill();
+          fx.globalAlpha = k;
+          fx.beginPath(); fx.arc(s.x, s.y, R, 0, 7); fx.fill();
+        }
+      }
     }
-    fx.globalAlpha = 1;
-    // 子弹曳光
-    fx.strokeStyle = 'rgba(255,231,160,.9)'; fx.lineWidth = 2;
-    for (const b of G.bullets) {
-      const s = w2s(b.x, b.y), e2 = w2s(b.x - b.vx * 0.014, b.y - b.vy * 0.014);
-      fx.beginPath(); fx.moveTo(s.x, s.y); fx.lineTo(e2.x, e2.y); fx.stroke();
+    fx.globalCompositeOperation = 'source-over';
+    fx.globalAlpha = 1; fx.lineCap = 'butt';
+    // 子弹曳光：渐变拖尾 + 亮芯，全程 lighter 叠出 bloom（不加头部光点，弹道要干净利落）
+    if (G.bullets.length) {
+      fx.globalCompositeOperation = 'lighter';
+      for (const b of G.bullets) {
+        const s = w2s(b.x, b.y), e = w2s(b.x - b.vx * 0.03, b.y - b.vy * 0.03);
+        const gr = fx.createLinearGradient(s.x, s.y, e.x, e.y);
+        gr.addColorStop(0, 'rgba(255,252,230,.95)');
+        gr.addColorStop(0.22, 'rgba(255,206,120,.5)');
+        gr.addColorStop(1, 'rgba(255,120,40,0)');
+        fx.strokeStyle = gr; fx.lineWidth = Math.max(2, 6 * viewSc * 0.55);
+        fx.beginPath(); fx.moveTo(s.x, s.y); fx.lineTo(e.x, e.y); fx.stroke();
+        fx.strokeStyle = 'rgba(255,255,242,.9)'; fx.lineWidth = Math.max(1, 2 * viewSc * 0.55);
+        fx.beginPath(); fx.moveTo(s.x, s.y); fx.lineTo(e.x, e.y); fx.stroke();
+      }
+      fx.globalCompositeOperation = 'source-over';
     }
     // 枪口火光
     for (const f of flashes) {
       const s = w2s(f.x, f.y), k = f.t / f.life;
       fx.save(); fx.translate(s.x, s.y); fx.rotate(-f.a * RAD);
+      fx.globalCompositeOperation = 'lighter';
       fx.globalAlpha = k;
-      const gr = fx.createRadialGradient(0, 0, 2, 0, 0, 42 * k + 10);
+      const R = (26 * k + 8) * viewSc;
+      const gr = fx.createRadialGradient(0, 0, 2, 0, 0, R);
       gr.addColorStop(0, '#fff6d0'); gr.addColorStop(.4, 'rgba(255,190,90,.9)'); gr.addColorStop(1, 'rgba(255,120,40,0)');
-      fx.fillStyle = gr; fx.beginPath(); fx.arc(0, 0, 42 * k + 10, 0, 7); fx.fill();
+      fx.fillStyle = gr; fx.beginPath(); fx.arc(0, 0, R, 0, 7); fx.fill();
       fx.fillStyle = '#fff2c8';
-      fx.beginPath(); fx.moveTo(6, -7); fx.lineTo(48 * k + 14, 0); fx.lineTo(6, 7); fx.closePath(); fx.fill();
+      fx.beginPath();
+      fx.moveTo(6 * viewSc, -7 * viewSc);
+      fx.lineTo((30 * k + 10) * viewSc, 0);
+      fx.lineTo(6 * viewSc, 7 * viewSc);
+      fx.closePath(); fx.fill();
       fx.restore();
     }
     fx.globalAlpha = 1;
