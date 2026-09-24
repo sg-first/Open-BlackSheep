@@ -50,7 +50,11 @@
   addEventListener('resize', resize);
 
   const v3 = (x, y) => new sp.webgl.Vector3(x, y, 0);
-  const w2s = (x, y) => ({ x: (x - camX) * viewSc + W / 2, y: H / 2 + (camY - y) * viewSc });
+  // 屏幕颤抖：相机、w2s、背景三者共用同一个偏移，画面才会整体一起抖。
+  // 只抖相机的话角色在抖、粒子和背景不动，看起来像角色自己抽搐。
+  let shakeX = 0, shakeY = 0;
+  const w2s = (x, y) => ({ x: (x - camX) * viewSc + W / 2 - shakeX,
+                           y: H / 2 + (camY - y) * viewSc + shakeY });
   const s2w = (px, py) => camera.screenToWorld(v3(px * dpr, py * dpr), glc.width, glc.height);
 
   // ---------------------------------------------------------------- 状态
@@ -151,41 +155,43 @@
     return { w, h, y };
   }
 
+  // 背景多画一圈：抖动时画布边缘不会露出没画到的黑边
+  const OVER = 32;
   function drawLayer(img, parallax, alpha, tint) {
     if (!img) return;
     const { w, h, y } = layerBox(img);
-    let x = -(((camX * parallax * bgSc) % w) + w) % w;     // 视差按设计像素平移，不跟相机缩放走
+    let x = -(((camX * parallax * bgSc) % w) + w) % w - OVER;   // 视差按设计像素平移，不跟相机缩放走
     bgx.globalAlpha = alpha;
-    while (x < W) { bgx.drawImage(img, x, y, w, h); x += w; }
+    while (x < W + OVER) { bgx.drawImage(img, x, y, w, h); x += w; }
     bgx.globalAlpha = 1;
-    if (tint) { bgx.fillStyle = tint; bgx.fillRect(0, 0, W, H); }
+    if (tint) { bgx.fillStyle = tint; bgx.fillRect(-OVER, -OVER, W + OVER * 2, H + OVER * 2); }
   }
 
   function drawBackground() {
-    bgx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    bgx.clearRect(0, 0, W, H);
+    bgx.setTransform(dpr, 0, 0, dpr, -shakeX * dpr, shakeY * dpr);   // 背景跟着一起抖
+    bgx.clearRect(-OVER, -OVER, W + OVER * 2, H + OVER * 2);
     const sky = bgx.createLinearGradient(0, 0, 0, groundY);
     sky.addColorStop(0, '#111823'); sky.addColorStop(1, '#1d2735');
-    bgx.fillStyle = sky; bgx.fillRect(0, 0, W, H);
+    bgx.fillStyle = sky; bgx.fillRect(-OVER, -OVER, W + OVER * 2, H + OVER * 2);
     drawLayer(BG.base, 0.22, 1, 'rgba(16,22,32,.18)');
     drawLayer(BG.over, 0.45, 1, null);
     if (!$('optGround').checked) return;
     // 地平线以下：地面
     const g = bgx.createLinearGradient(0, groundY, 0, H);
     g.addColorStop(0, '#2a2119'); g.addColorStop(1, '#100c09');
-    bgx.fillStyle = g; bgx.fillRect(0, groundY, W, H - groundY);
+    bgx.fillStyle = g; bgx.fillRect(-OVER, groundY, W + OVER * 2, H - groundY + OVER);
     bgx.strokeStyle = 'rgba(255,190,120,.22)'; bgx.lineWidth = 2;
-    bgx.beginPath(); bgx.moveTo(0, groundY); bgx.lineTo(W, groundY); bgx.stroke();
+    bgx.beginPath(); bgx.moveTo(-OVER, groundY); bgx.lineTo(W + OVER, groundY); bgx.stroke();
     // 地面纹理条（随镜头滚动）
     bgx.strokeStyle = 'rgba(255,255,255,.045)'; bgx.lineWidth = 1;
     for (let i = 0; i < 9; i++) {
       const t = i / 9, yy = groundY + 8 + t * t * (H - groundY);
-      bgx.beginPath(); bgx.moveTo(0, yy); bgx.lineTo(W, yy); bgx.stroke();
+      bgx.beginPath(); bgx.moveTo(-OVER, yy); bgx.lineTo(W + OVER, yy); bgx.stroke();
     }
     bgx.strokeStyle = 'rgba(0,0,0,.25)';
     const step = 96, off = -(((camX * bgSc) % step) + step) % step;
-    for (let x = off; x < W; x += step) {
-      bgx.beginPath(); bgx.moveTo(x, groundY); bgx.lineTo(x - 40, H); bgx.stroke();
+    for (let x = off - OVER; x < W + OVER; x += step) {
+      bgx.beginPath(); bgx.moveTo(x, groundY); bgx.lineTo(x - 40, H + OVER); bgx.stroke();
     }
   }
 
@@ -358,6 +364,7 @@
         blood(nx, ny, Math.round(6 + 7 * mul), dirx);
         spark(nx, ny, 6);
         shock(nx, ny, 4, 20 + 16 * mul, '255,240,200');
+        G.shake = Math.max(G.shake, 1.8 + 2.6 * mul);   // 命中颤抖，贴脸打更明显
         G.hitstop = Math.max(G.hitstop, 0.028);
         const dead = hit.hurt(b.dmg * mul, dirx, 150);
         if (dead) {
@@ -398,9 +405,11 @@
 
   function aimDeg() {
     const P = G.player;
-    const wp = s2w(mouse.x, mouse.y);
+    // 手动做 w2s 的逆变换：不能用 s2w，那会带上屏幕颤抖的偏移，瞄准时准星会飘
+    const wx = camX + (mouse.x - W / 2) / viewSc;
+    const wy = camY - (mouse.y - H / 2) / viewSc;
     const ox = P.x + P.face * 40, oy = P.y + 150;
-    return Math.atan2(wp.y - oy, wp.x - ox) * DEG;
+    return Math.atan2(wy - oy, wx - ox) * DEG;
   }
 
   // ---------------------------------------------------------------- 引导
@@ -500,8 +509,11 @@
     // 相机：世界 y=0（地面）落在屏幕 groundY
     camX += (P.x - camX) * Math.min(1, 5 * dt);
     camY = (groundY - H / 2) / viewSc;
-    camera.position.x = camX;
-    camera.position.y = camY + ($('optShake').checked ? rnd(-G.shake, G.shake) / viewSc : 0);
+    if ($('optShake').checked && G.shake > 0.05) {
+      shakeX = rnd(-G.shake, G.shake); shakeY = rnd(-G.shake, G.shake);
+    } else { shakeX = 0; shakeY = 0; }
+    camera.position.x = camX + shakeX / viewSc;
+    camera.position.y = camY + shakeY / viewSc;
     camera.update();
 
     hud();
@@ -549,9 +561,10 @@
     // 近景（画在角色之上，制造前景遮挡）
     if (BG.front) {
       const { w, h, y } = layerBox(BG.front);
-      let x = -(((camX * 1.15 * bgSc) % w) + w) % w;
+      // fx 画布不整体偏移（准星和 HUD 不抖），所以前景自己带上抖动
+      let x = -(((camX * 1.15 * bgSc) % w) + w) % w - OVER - shakeX;
       fx.globalAlpha = 0.75;
-      while (x < W) { fx.drawImage(BG.front, x, y, w, h); x += w; }
+      while (x < W + OVER) { fx.drawImage(BG.front, x, y + shakeY, w, h); x += w; }
       fx.globalAlpha = 1;
     }
     // 粒子：两趟——先画普通混合的血（叠 lighter 会发白），再叠发光的火花与冲击环
