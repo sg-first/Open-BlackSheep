@@ -1,0 +1,181 @@
+
+shuangmawei.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Hair_1
+  rotate: true
+  xy: 1013, 179
+  size: 48, 149
+  orig: 48, 149
+  offset: 0, 0
+  index: -1
+Hair_2
+  rotate: true
+  xy: 1452, 219
+  size: 55, 180
+  orig: 55, 180
+  offset: 0, 0
+  index: -1
+Head_1
+  rotate: true
+  xy: 1470, 338
+  size: 164, 191
+  orig: 164, 191
+  offset: 0, 0
+  index: -1
+Head_2
+  rotate: true
+  xy: 1663, 351
+  size: 151, 181
+  orig: 151, 181
+  offset: 0, 0
+  index: -1
+Spine_1
+  rotate: true
+  xy: 1022, 229
+  size: 125, 206
+  orig: 125, 206
+  offset: 0, 0
+  index: -1
+Spine_2
+  rotate: true
+  xy: 1254, 342
+  size: 160, 214
+  orig: 160, 214
+  offset: 0, 0
+  index: -1
+Thigh_1_L
+  rotate: true
+  xy: 1230, 275
+  size: 65, 206
+  orig: 65, 206
+  offset: 0, 0
+  index: -1
+Thigh_1_R
+  rotate: true
+  xy: 1230, 275
+  size: 65, 206
+  orig: 65, 206
+  offset: 0, 0
+  index: -1
+Thigh_2_L
+  rotate: true
+  xy: 1230, 228
+  size: 45, 220
+  orig: 45, 220
+  offset: 0, 0
+  index: -1
+Thigh_2_R
+  rotate: true
+  xy: 1230, 228
+  size: 45, 220
+  orig: 45, 220
+  offset: 0, 0
+  index: -1
+Thigh_3_L
+  rotate: false
+  xy: 910, 76
+  size: 100, 60
+  orig: 100, 60
+  offset: 0, 0
+  index: -1
+Thigh_3_R
+  rotate: false
+  xy: 910, 76
+  size: 100, 60
+  orig: 100, 60
+  offset: 0, 0
+  index: -1
+UpperArm_1_L
+  rotate: true
+  xy: 1663, 285
+  size: 64, 168
+  orig: 64, 168
+  offset: 0, 0
+  index: -1
+UpperArm_1_R
+  rotate: true
+  xy: 1438, 276
+  size: 60, 183
+  orig: 60, 183
+  offset: 0, 0
+  index: -1
+UpperArm_2_L
+  rotate: false
+  xy: 943, 138
+  size: 68, 138
+  orig: 68, 138
+  offset: 0, 0
+  index: -1
+UpperArm_2_R
+  rotate: true
+  xy: 1846, 349
+  size: 76, 176
+  orig: 76, 176
+  offset: 0, 0
+  index: -1
+UpperArm_3_L
+  rotate: true
+  xy: 1846, 427
+  size: 75, 178
+  orig: 75, 178
+  offset: 0, 0
+  index: -1
+UpperArm_3_R
+  rotate: true
+  xy: 1833, 277
+  size: 70, 158
+  orig: 70, 158
+  offset: 0, 0
+  index: -1
+hair_3
+  rotate: false
+  xy: 1634, 212
+  size: 151, 71
+  orig: 151, 71
+  offset: 0, 0
+  index: -1
+hair_4
+  rotate: false
+  xy: 1013, 99
+  size: 116, 78
+  orig: 116, 78
+  offset: 0, 0
+  index: -1
+tentacle_1
+  rotate: true
+  xy: 2, 73
+  size: 113, 906
+  orig: 113, 906
+  offset: 0, 0
+  index: -1
+tentacle_2
+  rotate: true
+  xy: 2, 188
+  size: 88, 939
+  orig: 88, 939
+  offset: 0, 0
+  index: -1
+tentacle_3
+  rotate: true
+  xy: 2, 356
+  size: 146, 1250
+  orig: 146, 1250
+  offset: 0, 0
+  index: -1
+tentacle_4
+  rotate: true
+  xy: 2, 2
+  size: 69, 845
+  orig: 69, 845
+  offset: 0, 0
+  index: -1
+tentacle_5
+  rotate: true
+  xy: 2, 278
+  size: 76, 1018
+  orig: 76, 1018
+  offset: 0, 0
+  index: -1

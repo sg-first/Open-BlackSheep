@@ -1,0 +1,181 @@
+
+boss jiejie.png
+size: 1985,1985
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+0
+  rotate: true
+  xy: 2, 17
+  size: 29, 76
+  orig: 29, 86
+  offset: 0, 10
+  index: -1
+1
+  rotate: true
+  xy: 776, 143
+  size: 73, 115
+  orig: 76, 159
+  offset: 3, 43
+  index: -1
+2
+  rotate: false
+  xy: 481, 95
+  size: 293, 121
+  orig: 299, 121
+  offset: 0, 0
+  index: -1
+3
+  rotate: true
+  xy: 776, 91
+  size: 50, 69
+  orig: 53, 72
+  offset: 3, 0
+  index: -1
+4
+  rotate: true
+  xy: 80, 8
+  size: 38, 57
+  orig: 39, 58
+  offset: 1, 0
+  index: -1
+5
+  rotate: true
+  xy: 847, 81
+  size: 60, 46
+  orig: 63, 50
+  offset: 3, 3
+  index: -1
+6
+  rotate: true
+  xy: 139, 2
+  size: 44, 41
+  orig: 44, 43
+  offset: 0, 1
+  index: -1
+L dabi
+  rotate: false
+  xy: 1745, 1433
+  size: 221, 550
+  orig: 234, 554
+  offset: 13, 0
+  index: -1
+R dabi
+  rotate: true
+  xy: 447, 218
+  size: 146, 448
+  orig: 147, 460
+  offset: 1, 0
+  index: -1
+R xiaobi
+  rotate: true
+  xy: 1819, 576
+  size: 311, 99
+  orig: 322, 105
+  offset: 11, 0
+  index: -1
+body
+  rotate: false
+  xy: 2, 210
+  size: 443, 507
+  orig: 487, 519
+  offset: 44, 12
+  index: -1
+body2
+  rotate: false
+  xy: 962, 788
+  size: 397, 444
+  orig: 397, 444
+  offset: 0, 0
+  index: -1
+longzi suo
+  rotate: true
+  xy: 1745, 1296
+  size: 135, 131
+  orig: 136, 133
+  offset: 0, 1
+  index: -1
+longzi1
+  rotate: false
+  xy: 1022, 391
+  size: 429, 395
+  orig: 430, 395
+  offset: 0, 0
+  index: -1
+longzi2
+  rotate: false
+  xy: 2, 719
+  size: 958, 1264
+  orig: 958, 1264
+  offset: 0, 0
+  index: -1
+longzi3
+  rotate: false
+  xy: 447, 366
+  size: 573, 351
+  orig: 573, 367
+  offset: 0, 0
+  index: -1
+tou
+  rotate: true
+  xy: 1289, 13
+  size: 376, 425
+  orig: 376, 425
+  offset: 0, 0
+  index: -1
+toufa1
+  rotate: true
+  xy: 1744, 1076
+  size: 156, 221
+  orig: 170, 221
+  offset: 14, 0
+  index: -1
+toufa2
+  rotate: false
+  xy: 1744, 889
+  size: 163, 185
+  orig: 178, 185
+  offset: 8, 0
+  index: -1
+xiaofu1
+  rotate: false
+  xy: 962, 1234
+  size: 781, 749
+  orig: 781, 749
+  offset: 0, 0
+  index: -1
+xiaofu2
+  rotate: true
+  xy: 1716, 8
+  size: 422, 120
+  orig: 452, 143
+  offset: 30, 0
+  index: -1
+xiaofu3
+  rotate: true
+  xy: 897, 14
+  size: 350, 390
+  orig: 350, 390
+  offset: 0, 0
+  index: -1
+youtui
+  rotate: false
+  xy: 1361, 841
+  size: 381, 391
+  orig: 381, 397
+  offset: 0, 6
+  index: -1
+zuo datui
+  rotate: true
+  xy: 1453, 432
+  size: 407, 364
+  orig: 408, 365
+  offset: 0, 1
+  index: -1
+zuo xiaotui
+  rotate: false
+  xy: 2, 48
+  size: 477, 160
+  orig: 477, 161
+  offset: 0, 0
+  index: -1

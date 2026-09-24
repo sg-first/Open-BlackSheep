@@ -1,0 +1,230 @@
+
+chenfei.png
+size: 1541,1541
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+L arm1
+  rotate: false
+  xy: 1266, 578
+  size: 142, 379
+  orig: 145, 379
+  offset: 0, 0
+  index: -1
+L arm2
+  rotate: true
+  xy: 565, 416
+  size: 163, 371
+  orig: 163, 371
+  offset: 0, 0
+  index: -1
+L hand
+  rotate: true
+  xy: 2, 7
+  size: 92, 163
+  orig: 92, 166
+  offset: 0, 0
+  index: -1
+L hand2
+  rotate: true
+  xy: 938, 386
+  size: 137, 155
+  orig: 213, 221
+  offset: 39, 28
+  index: -1
+R arm1
+  rotate: false
+  xy: 940, 525
+  size: 170, 411
+  orig: 172, 413
+  offset: 2, 0
+  index: -1
+R arm2
+  rotate: false
+  xy: 1112, 520
+  size: 152, 416
+  orig: 159, 417
+  offset: 4, 0
+  index: -1
+R hand
+  rotate: false
+  xy: 1410, 801
+  size: 115, 175
+  orig: 115, 175
+  offset: 0, 0
+  index: -1
+bag
+  rotate: false
+  xy: 2, 550
+  size: 504, 989
+  orig: 510, 989
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 508, 581
+  size: 430, 958
+  orig: 441, 958
+  offset: 0, 0
+  index: -1
+browL
+  rotate: false
+  xy: 1060, 105
+  size: 38, 22
+  orig: 38, 22
+  offset: 0, 0
+  index: -1
+browR
+  rotate: true
+  xy: 1025, 44
+  size: 83, 33
+  orig: 83, 33
+  offset: 0, 0
+  index: -1
+eye ballL
+  rotate: false
+  xy: 893, 392
+  size: 22, 22
+  orig: 22, 22
+  offset: 0, 0
+  index: -1
+eye ballR
+  rotate: false
+  xy: 508, 553
+  size: 25, 26
+  orig: 25, 26
+  offset: 0, 0
+  index: -1
+eye biyan
+  rotate: false
+  xy: 167, 40
+  size: 132, 59
+  orig: 132, 59
+  offset: 0, 0
+  index: -1
+eye white
+  rotate: false
+  xy: 1410, 620
+  size: 105, 43
+  orig: 105, 43
+  offset: 0, 0
+  index: -1
+eye yanpi
+  rotate: true
+  xy: 1485, 486
+  size: 132, 52
+  orig: 132, 52
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 893, 129
+  size: 205, 255
+  orig: 205, 255
+  offset: 0, 0
+  index: -1
+foot L
+  rotate: true
+  xy: 393, 54
+  size: 312, 179
+  orig: 312, 179
+  offset: 0, 0
+  index: -1
+foot R1
+  rotate: true
+  xy: 393, 54
+  size: 312, 179
+  orig: 312, 179
+  offset: 0, 0
+  index: -1
+foot R2
+  rotate: false
+  xy: 574, 13
+  size: 316, 195
+  orig: 316, 195
+  offset: 0, 0
+  index: -1
+hair
+  rotate: false
+  xy: 1285, 49
+  size: 244, 260
+  orig: 255, 262
+  offset: 11, 0
+  index: -1
+kua
+  rotate: true
+  xy: 1100, 218
+  size: 300, 183
+  orig: 300, 183
+  offset: 0, 0
+  index: -1
+leg1L
+  rotate: false
+  xy: 1348, 978
+  size: 186, 561
+  orig: 186, 561
+  offset: 0, 0
+  index: -1
+leg1R
+  rotate: false
+  xy: 940, 938
+  size: 214, 601
+  orig: 214, 601
+  offset: 0, 0
+  index: -1
+leg2L
+  rotate: true
+  xy: 2, 368
+  size: 180, 561
+  orig: 180, 561
+  offset: 0, 0
+  index: -1
+leg2R
+  rotate: false
+  xy: 1156, 959
+  size: 190, 580
+  orig: 190, 580
+  offset: 0, 0
+  index: -1
+run L hand
+  rotate: true
+  xy: 892, 18
+  size: 109, 131
+  orig: 120, 139
+  offset: 6, 3
+  index: -1
+run Larm1
+  rotate: true
+  xy: 1285, 311
+  size: 265, 198
+  orig: 266, 198
+  offset: 1, 0
+  index: -1
+run Larm2
+  rotate: true
+  xy: 1100, 2
+  size: 214, 174
+  orig: 214, 174
+  offset: 0, 0
+  index: -1
+run arm1
+  rotate: true
+  xy: 2, 101
+  size: 265, 389
+  orig: 265, 389
+  offset: 0, 0
+  index: -1
+run arm2b
+  rotate: false
+  xy: 574, 210
+  size: 317, 204
+  orig: 360, 269
+  offset: 25, 25
+  index: -1
+run hand
+  rotate: true
+  xy: 1410, 665
+  size: 134, 112
+  orig: 134, 112
+  offset: 0, 0
+  index: -1

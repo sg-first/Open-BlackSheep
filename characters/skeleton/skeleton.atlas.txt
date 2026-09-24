@@ -1,0 +1,20 @@
+
+skeleton.png
+size: 1311,582
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+主角投影_拷贝
+  rotate: false
+  xy: 2, 6
+  size: 763, 574
+  orig: 773, 613
+  offset: 7, 0
+  index: -1
+主角投影_拷贝2
+  rotate: false
+  xy: 767, 2
+  size: 542, 578
+  orig: 773, 613
+  offset: 150, 0
+  index: -1

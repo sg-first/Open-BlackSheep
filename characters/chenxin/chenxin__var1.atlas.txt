@@ -1,0 +1,153 @@
+
+chenxin.png
+size: 1221,1072
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Run_UpperArm_3_L
+  rotate: true
+  xy: 1067, 172
+  size: 103, 152
+  orig: 244, 319
+  offset: 57, 94
+  index: -1
+Run_UpperArm_3_R
+  rotate: false
+  xy: 883, 90
+  size: 92, 182
+  orig: 253, 288
+  offset: 77, 73
+  index: -1
+da_bianzi
+  rotate: false
+  xy: 637, 349
+  size: 135, 269
+  orig: 140, 269
+  offset: 5, 0
+  index: -1
+da_body
+  rotate: false
+  xy: 2, 317
+  size: 341, 753
+  orig: 341, 753
+  offset: 0, 0
+  index: -1
+da_dou
+  rotate: false
+  xy: 753, 35
+  size: 128, 280
+  orig: 147, 296
+  offset: 7, 4
+  index: -1
+da_erji
+  rotate: true
+  xy: 2, 158
+  size: 157, 420
+  orig: 157, 420
+  offset: 0, 0
+  index: -1
+da_tou
+  rotate: false
+  xy: 955, 800
+  size: 264, 270
+  orig: 266, 271
+  offset: 1, 1
+  index: -1
+da_toufa
+  rotate: true
+  xy: 345, 338
+  size: 46, 69
+  orig: 49, 69
+  offset: 2, 0
+  index: -1
+da_youjiao
+  rotate: false
+  xy: 345, 386
+  size: 290, 167
+  orig: 290, 167
+  offset: 0, 0
+  index: -1
+da_youshou
+  rotate: false
+  xy: 977, 110
+  size: 88, 162
+  orig: 88, 162
+  offset: 0, 0
+  index: -1
+da_youshoubi1
+  rotate: false
+  xy: 931, 274
+  size: 123, 332
+  orig: 123, 332
+  offset: 0, 0
+  index: -1
+da_youshoubi2
+  rotate: false
+  xy: 1056, 277
+  size: 131, 358
+  orig: 146, 370
+  offset: 0, 12
+  index: -1
+da_youtui1
+  rotate: false
+  xy: 345, 555
+  size: 249, 515
+  orig: 249, 515
+  offset: 0, 0
+  index: -1
+da_youtui2
+  rotate: false
+  xy: 793, 608
+  size: 160, 462
+  orig: 160, 462
+  offset: 0, 0
+  index: -1
+da_zhixin
+  rotate: false
+  xy: 955, 637
+  size: 259, 161
+  orig: 259, 179
+  offset: 0, 18
+  index: -1
+da_zuojiao
+  rotate: true
+  xy: 774, 317
+  size: 289, 155
+  orig: 305, 157
+  offset: 16, 2
+  index: -1
+da_zuoshou
+  rotate: true
+  xy: 1067, 100
+  size: 70, 146
+  orig: 70, 148
+  offset: 0, 1
+  index: -1
+da_zuoshoubi1
+  rotate: false
+  xy: 484, 42
+  size: 135, 342
+  orig: 144, 361
+  offset: 8, 19
+  index: -1
+da_zuoshoubi2
+  rotate: false
+  xy: 621, 31
+  size: 130, 316
+  orig: 131, 316
+  offset: 0, 0
+  index: -1
+da_zuotui1
+  rotate: false
+  xy: 596, 620
+  size: 195, 450
+  orig: 195, 450
+  offset: 0, 0
+  index: -1
+da_zuotui2
+  rotate: true
+  xy: 2, 2
+  size: 154, 480
+  orig: 157, 480
+  offset: 3, 0
+  index: -1

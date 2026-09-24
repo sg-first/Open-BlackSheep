@@ -1,0 +1,293 @@
+
+duke.png
+size: 1575,1575
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Eye_1
+  rotate: false
+  xy: 2, 2
+  size: 127, 56
+  orig: 127, 56
+  offset: 0, 0
+  index: -1
+Eye_2
+  rotate: true
+  xy: 979, 78
+  size: 152, 67
+  orig: 152, 67
+  offset: 0, 0
+  index: -1
+Eye_2_L
+  rotate: true
+  xy: 1284, 595
+  size: 34, 33
+  orig: 34, 33
+  offset: 0, 0
+  index: -1
+Eye_2_R
+  rotate: false
+  xy: 1500, 694
+  size: 31, 34
+  orig: 31, 34
+  offset: 0, 0
+  index: -1
+Hair_1
+  rotate: false
+  xy: 435, 494
+  size: 303, 385
+  orig: 312, 388
+  offset: 9, 0
+  index: -1
+Hair_2
+  rotate: false
+  xy: 1319, 372
+  size: 163, 308
+  orig: 163, 308
+  offset: 0, 0
+  index: -1
+Head
+  rotate: true
+  xy: 422, 235
+  size: 257, 375
+  orig: 260, 378
+  offset: 0, 0
+  index: -1
+L hand2
+  rotate: true
+  xy: 1489, 800
+  size: 124, 72
+  orig: 166, 72
+  offset: 0, 0
+  index: -1
+L1
+  rotate: true
+  xy: 740, 507
+  size: 72, 49
+  orig: 72, 49
+  offset: 0, 0
+  index: -1
+L2
+  rotate: false
+  xy: 1203, 598
+  size: 79, 31
+  orig: 79, 33
+  offset: 0, 0
+  index: -1
+L3
+  rotate: false
+  xy: 950, 998
+  size: 85, 22
+  orig: 85, 23
+  offset: 0, 0
+  index: -1
+L4
+  rotate: false
+  xy: 841, 28
+  size: 78, 31
+  orig: 78, 31
+  offset: 0, 0
+  index: -1
+L5
+  rotate: false
+  xy: 768, 13
+  size: 71, 46
+  orig: 71, 46
+  offset: 0, 0
+  index: -1
+Pelvis
+  rotate: true
+  xy: 1310, 793
+  size: 328, 177
+  orig: 328, 180
+  offset: 0, 3
+  index: -1
+R hand2
+  rotate: false
+  xy: 1177, 1034
+  size: 117, 87
+  orig: 193, 92
+  offset: 0, 0
+  index: -1
+R1
+  rotate: true
+  xy: 1500, 730
+  size: 68, 67
+  orig: 68, 67
+  offset: 0, 0
+  index: -1
+R2
+  rotate: false
+  xy: 131, 29
+  size: 113, 29
+  orig: 120, 29
+  offset: 0, 0
+  index: -1
+R3
+  rotate: false
+  xy: 674, 17
+  size: 92, 42
+  orig: 92, 42
+  offset: 0, 0
+  index: -1
+R4
+  rotate: false
+  xy: 1120, 594
+  size: 81, 35
+  orig: 81, 36
+  offset: 0, 0
+  index: -1
+R5
+  rotate: true
+  xy: 921, 2
+  size: 57, 28
+  orig: 60, 34
+  offset: 0, 0
+  index: -1
+Spine
+  rotate: false
+  xy: 2, 692
+  size: 431, 881
+  orig: 454, 881
+  offset: 23, 0
+  index: -1
+Thigh_1_L
+  rotate: false
+  xy: 2, 60
+  size: 244, 630
+  orig: 248, 633
+  offset: 4, 3
+  index: -1
+Thigh_1_R
+  rotate: false
+  xy: 435, 881
+  size: 285, 692
+  orig: 288, 692
+  offset: 3, 0
+  index: -1
+Thigh_2_L
+  rotate: false
+  xy: 950, 1022
+  size: 225, 551
+  orig: 225, 551
+  offset: 0, 0
+  index: -1
+Thigh_2_R
+  rotate: false
+  xy: 722, 998
+  size: 226, 575
+  orig: 278, 575
+  offset: 52, 0
+  index: -1
+Thigh_3_L_1
+  rotate: true
+  xy: 1065, 249
+  size: 333, 252
+  orig: 333, 257
+  offset: 0, 5
+  index: -1
+Thigh_3_R
+  rotate: true
+  xy: 799, 232
+  size: 347, 264
+  orig: 347, 264
+  offset: 0, 0
+  index: -1
+UpperArm_1_L
+  rotate: false
+  xy: 248, 253
+  size: 172, 437
+  orig: 182, 444
+  offset: 10, 7
+  index: -1
+UpperArm_1_R
+  rotate: false
+  xy: 1424, 1142
+  size: 144, 431
+  orig: 154, 443
+  offset: 5, 12
+  index: -1
+UpperArm_2_L
+  rotate: false
+  xy: 1120, 631
+  size: 188, 389
+  orig: 189, 396
+  offset: 1, 0
+  index: -1
+UpperArm_2_R
+  rotate: false
+  xy: 940, 584
+  size: 178, 412
+  orig: 182, 414
+  offset: 0, 0
+  index: -1
+UpperArm_3_L
+  rotate: false
+  xy: 1489, 926
+  size: 76, 214
+  orig: 76, 214
+  offset: 0, 0
+  index: -1
+UpperArm_3_L_1
+  rotate: true
+  xy: 1319, 267
+  size: 103, 241
+  orig: 103, 242
+  offset: 0, 1
+  index: -1
+UpperArm_3_R
+  rotate: false
+  xy: 248, 17
+  size: 119, 234
+  orig: 124, 234
+  offset: 5, 0
+  index: -1
+UpperArm_3_R_1
+  rotate: true
+  xy: 1310, 682
+  size: 109, 188
+  orig: 109, 188
+  offset: 0, 0
+  index: -1
+bao_L1
+  rotate: false
+  xy: 740, 581
+  size: 198, 415
+  orig: 199, 415
+  offset: 0, 0
+  index: -1
+bao_L2
+  rotate: false
+  xy: 674, 61
+  size: 303, 169
+  orig: 304, 169
+  offset: 0, 0
+  index: -1
+bao_L3
+  rotate: false
+  xy: 1442, 172
+  size: 105, 93
+  orig: 105, 93
+  offset: 0, 0
+  index: -1
+bao_R1
+  rotate: false
+  xy: 1177, 1123
+  size: 245, 450
+  orig: 246, 450
+  offset: 1, 0
+  index: -1
+bao_R2
+  rotate: false
+  xy: 369, 8
+  size: 303, 225
+  orig: 322, 226
+  offset: 19, 1
+  index: -1
+bao_R3
+  rotate: true
+  xy: 1319, 146
+  size: 119, 121
+  orig: 120, 124
+  offset: 0, 1
+  index: -1

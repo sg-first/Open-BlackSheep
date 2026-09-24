@@ -1,0 +1,146 @@
+
+npc.png
+size: 802,4072
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_shenti
+  rotate: true
+  xy: 2, 1977
+  size: 446, 755
+  orig: 446, 763
+  offset: 0, 0
+  index: -1
+1_tou
+  rotate: true
+  xy: 2, 28
+  size: 278, 321
+  orig: 278, 354
+  offset: 0, 15
+  index: -1
+2_shenti
+  rotate: true
+  xy: 2, 1570
+  size: 405, 684
+  orig: 443, 744
+  offset: 0, 35
+  index: -1
+2_tou
+  rotate: true
+  xy: 2, 795
+  size: 286, 379
+  orig: 286, 379
+  offset: 0, 0
+  index: -1
+3_shenti
+  rotate: false
+  xy: 2, 2425
+  size: 611, 824
+  orig: 629, 824
+  offset: 8, 0
+  index: -1
+3_tou
+  rotate: false
+  xy: 325, 2
+  size: 253, 278
+  orig: 253, 278
+  offset: 0, 0
+  index: -1
+4_shenti
+  rotate: false
+  xy: 2, 3251
+  size: 618, 819
+  orig: 618, 833
+  offset: 0, 14
+  index: -1
+4_tou
+  rotate: false
+  xy: 572, 285
+  size: 222, 273
+  orig: 222, 282
+  offset: 0, 9
+  index: -1
+F_Lleg1
+  rotate: false
+  xy: 575, 560
+  size: 225, 454
+  orig: 233, 456
+  offset: 0, 2
+  index: -1
+F_Lleg2
+  rotate: false
+  xy: 575, 1016
+  size: 203, 552
+  orig: 204, 554
+  offset: 1, 0
+  index: -1
+F_Lleg3
+  rotate: true
+  xy: 615, 2637
+  size: 293, 172
+  orig: 312, 172
+  offset: 0, 0
+  index: -1
+F_Rleg1
+  rotate: false
+  xy: 2, 308
+  size: 188, 485
+  orig: 193, 505
+  offset: 2, 0
+  index: -1
+F_Rleg2
+  rotate: false
+  xy: 622, 3532
+  size: 177, 538
+  orig: 178, 547
+  offset: 1, 9
+  index: -1
+F_Rleg3
+  rotate: true
+  xy: 615, 2932
+  size: 290, 178
+  orig: 310, 178
+  offset: 0, 0
+  index: -1
+M_Lleg1
+  rotate: true
+  xy: 2, 1083
+  size: 251, 445
+  orig: 269, 478
+  offset: 12, 25
+  index: -1
+M_Lleg2
+  rotate: true
+  xy: 2, 1336
+  size: 232, 571
+  orig: 232, 594
+  offset: 0, 11
+  index: -1
+M_Lleg3
+  rotate: true
+  xy: 382, 282
+  size: 311, 188
+  orig: 337, 188
+  offset: 26, 0
+  index: -1
+M_Rleg1
+  rotate: false
+  xy: 383, 595
+  size: 190, 486
+  orig: 193, 495
+  offset: 0, 0
+  index: -1
+M_Rleg2
+  rotate: false
+  xy: 192, 328
+  size: 188, 465
+  orig: 203, 496
+  offset: 9, 31
+  index: -1
+M_Rleg3
+  rotate: true
+  xy: 622, 3224
+  size: 306, 177
+  orig: 346, 185
+  offset: 40, 0
+  index: -1
