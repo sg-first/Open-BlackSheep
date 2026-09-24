@@ -1,8 +1,8 @@
 {
- "generated": "2026-09-24 05:41:32",
+ "generated": "2026-09-24 14:26:46",
  "root": "E:\\BaiduNetdiskDownload\\9dm Black Sheep\\unpack",
- "n_characters": 19,
- "n_variants": 43,
+ "n_characters": 18,
+ "n_variants": 41,
  "characters": [
   {
    "name": "gujia",
@@ -20,6 +20,17 @@
        "file": "../characters/gujia/textures/gujia.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "gujia.png",
+       "src": "scenes/00_main/gujia_714.png",
+       "declared": "4096x4096",
+       "actual": "2048x2048",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -53,13 +64,13 @@
      "x": -6608.51,
      "y": -38.96,
      "json_bytes": 3486777,
-     "tex_bytes": 0
+     "tex_bytes": 1931999
     }
    ],
    "n_variants": 1,
    "max_bones": 412,
    "max_anims": 3,
-   "tex_mb": 0.0
+   "tex_mb": 1.84
   },
   {
    "name": "BOSS-tree",
@@ -77,6 +88,17 @@
        "file": "../characters/BOSS-tree/textures/BOSS-tree.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "BOSS-tree.png",
+       "src": "scenes/00_main/BOSS-tree_393.png",
+       "declared": "8113x2985",
+       "actual": "8192x2048",
+       "score": 0.992,
+       "npool": 2
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -142,7 +164,7 @@
      "x": -2439.15,
      "y": -102.04,
      "json_bytes": 2691739,
-     "tex_bytes": 0
+     "tex_bytes": 12943077
     },
     {
      "label": "BOSS-tree__var1",
@@ -156,6 +178,17 @@
        "file": "../characters/BOSS-tree/textures/BOSS-tree.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "BOSS-tree.png",
+       "src": "scenes/00_main/BOSS-tree_393.png",
+       "declared": "8113x2985",
+       "actual": "8192x2048",
+       "score": 0.992,
+       "npool": 2
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -218,13 +251,13 @@
      "x": -2439.15,
      "y": -102.04,
      "json_bytes": 5082015,
-     "tex_bytes": 0
+     "tex_bytes": 12943077
     }
    ],
    "n_variants": 2,
    "max_bones": 374,
    "max_anims": 14,
-   "tex_mb": 0.0
+   "tex_mb": 24.69
   },
   {
    "name": "B-boss",
@@ -242,6 +275,17 @@
        "file": "../characters/B-boss/textures/B-boss.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "B-boss.png",
+       "src": "scenes/11_designer_c/B-boss_113.png",
+       "declared": "3932x3932",
+       "actual": "2048x2048",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -269,13 +313,13 @@
      "x": 555,
      "y": 15.35,
      "json_bytes": 1822738,
-     "tex_bytes": 0
+     "tex_bytes": 4662247
     }
    ],
    "n_variants": 1,
    "max_bones": 205,
    "max_anims": 4,
-   "tex_mb": 0.0
+   "tex_mb": 4.45
   },
   {
    "name": "nanzhu",
@@ -290,9 +334,20 @@
      "pages": [
       {
        "page": "nanzhu.png",
-       "file": "../characters/nanzhu/textures/nanzhu.png"
+       "file": "../characters/nanzhu/textures/nanzhu__nanzhu__var6.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "nanzhu.png",
+       "src": "scenes/00_main/nanzhu_711.png",
+       "declared": "1700x1700",
+       "actual": "2048x2048",
+       "score": 0.994,
+       "npool": 5
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -404,7 +459,7 @@
      "x": -313.63,
      "y": -51.78,
      "json_bytes": 1660843,
-     "tex_bytes": 0
+     "tex_bytes": 2256230
     },
     {
      "label": "nanzhu__var11",
@@ -415,9 +470,20 @@
      "pages": [
       {
        "page": "nanzhu.png",
-       "file": "../characters/nanzhu/textures/nanzhu.png"
+       "file": "../characters/nanzhu/textures/nanzhu__nanzhu__var6.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "nanzhu.png",
+       "src": "scenes/00_main/nanzhu_711.png",
+       "declared": "1700x1700",
+       "actual": "2048x2048",
+       "score": 0.994,
+       "npool": 5
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -529,7 +595,7 @@
      "x": -313.63,
      "y": -51.78,
      "json_bytes": 1648647,
-     "tex_bytes": 0
+     "tex_bytes": 2256230
     },
     {
      "label": "nanzhu__var9",
@@ -540,9 +606,20 @@
      "pages": [
       {
        "page": "nanzhu.png",
-       "file": "../characters/nanzhu/textures/nanzhu.png"
+       "file": "../characters/nanzhu/textures/nanzhu__nanzhu__var5.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "nanzhu.png",
+       "src": "scenes/00_main/nanzhu_900.png",
+       "declared": "1606x1606",
+       "actual": "2048x2048",
+       "score": 0.994,
+       "npool": 5
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -654,7 +731,7 @@
      "x": -313.63,
      "y": -51.78,
      "json_bytes": 1659003,
-     "tex_bytes": 0
+     "tex_bytes": 2188631
     },
     {
      "label": "nanzhu__var3",
@@ -665,9 +742,20 @@
      "pages": [
       {
        "page": "nanzhu.png",
-       "file": "../characters/nanzhu/textures/nanzhu.png"
+       "file": "../characters/nanzhu/textures/nanzhu__nanzhu__var1.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "nanzhu.png",
+       "src": "scenes/00_main/nanzhu_704.png",
+       "declared": "1558x1558",
+       "actual": "2048x2048",
+       "score": 0.994,
+       "npool": 5
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -768,7 +856,7 @@
      "x": -313.63,
      "y": -51.78,
      "json_bytes": 1540854,
-     "tex_bytes": 0
+     "tex_bytes": 2177846
     },
     {
      "label": "nanzhu",
@@ -779,9 +867,20 @@
      "pages": [
       {
        "page": "nanzhu.png",
-       "file": "../characters/nanzhu/textures/nanzhu.png"
+       "file": "../characters/nanzhu/textures/nanzhu__nanzhu__var1.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "nanzhu.png",
+       "src": "scenes/00_main/nanzhu_704.png",
+       "declared": "1558x1558",
+       "actual": "2048x2048",
+       "score": 0.994,
+       "npool": 5
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -879,7 +978,7 @@
      "x": -313.63,
      "y": -51.78,
      "json_bytes": 1419120,
-     "tex_bytes": 0
+     "tex_bytes": 2177846
     },
     {
      "label": "nanzhu__var12",
@@ -890,13 +989,32 @@
      "pages": [
       {
        "page": "nanzhu.png",
-       "file": "../characters/nanzhu/textures/nanzhu.png"
+       "file": "../characters/nanzhu/textures/nanzhu__nanzhu__var8.png"
       },
       {
        "page": "nanzhu2.png",
        "file": "../characters/nanzhu/textures/nanzhu2.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "nanzhu.png",
+       "src": "scenes/00_main/nanzhu_929.png",
+       "declared": "2041x2041",
+       "actual": "2048x2048",
+       "score": 0.994,
+       "npool": 5
+      },
+      {
+       "page": "nanzhu2.png",
+       "src": "scenes/00_main/nanzhu2_908.png",
+       "declared": "1313x1313",
+       "actual": "1024x1024",
+       "score": "",
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -955,7 +1073,7 @@
      "x": -1145.77,
      "y": -16,
      "json_bytes": 1294393,
-     "tex_bytes": 0
+     "tex_bytes": 2711605
     },
     {
      "label": "nanzhu__var2",
@@ -966,13 +1084,32 @@
      "pages": [
       {
        "page": "nanzhu.png",
-       "file": "../characters/nanzhu/textures/nanzhu.png"
+       "file": "../characters/nanzhu/textures/nanzhu__nanzhu__var8.png"
       },
       {
        "page": "nanzhu2.png",
        "file": "../characters/nanzhu/textures/nanzhu2.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "nanzhu.png",
+       "src": "scenes/00_main/nanzhu_929.png",
+       "declared": "2041x2041",
+       "actual": "2048x2048",
+       "score": 0.994,
+       "npool": 5
+      },
+      {
+       "page": "nanzhu2.png",
+       "src": "scenes/00_main/nanzhu2_908.png",
+       "declared": "1313x1313",
+       "actual": "1024x1024",
+       "score": "",
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1030,7 +1167,7 @@
      "x": -1145.77,
      "y": -16,
      "json_bytes": 1177562,
-     "tex_bytes": 0
+     "tex_bytes": 2711605
     },
     {
      "label": "nanzhu__var7",
@@ -1041,9 +1178,20 @@
      "pages": [
       {
        "page": "nanzhu.png",
-       "file": "../characters/nanzhu/textures/nanzhu.png"
+       "file": "../characters/nanzhu/textures/nanzhu__nanzhu__var1.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "nanzhu.png",
+       "src": "scenes/00_main/nanzhu_704.png",
+       "declared": "1558x1558",
+       "actual": "2048x2048",
+       "score": 0.994,
+       "npool": 5
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1101,13 +1249,13 @@
      "x": -1145.77,
      "y": -16,
      "json_bytes": 442626,
-     "tex_bytes": 0
+     "tex_bytes": 2177846
     }
    ],
    "n_variants": 8,
    "max_bones": 131,
    "max_anims": 55,
-   "tex_mb": 0.0
+   "tex_mb": 17.79
   },
   {
    "name": "BOSSmeimei",
@@ -1133,6 +1281,33 @@
        "file": "../characters/BOSSmeimei/textures/BOSSmeimei3.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "BOSSmeimei.png",
+       "src": "scenes/00_main/BOSSmeimei_456.png",
+       "declared": "2038x2038",
+       "actual": "2048x2048",
+       "score": 0.0,
+       "npool": 1
+      },
+      {
+       "page": "BOSSmeimei2.png",
+       "src": "scenes/00_main/BOSSmeimei2_713.png",
+       "declared": "2047x2047",
+       "actual": "2048x2048",
+       "score": "",
+       "npool": 1
+      },
+      {
+       "page": "BOSSmeimei3.png",
+       "src": "scenes/00_main/BOSSmeimei3_1338.png",
+       "declared": "1530x1530",
+       "actual": "1024x1024",
+       "score": "",
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1197,13 +1372,13 @@
      "x": -1137.01,
      "y": -38.14,
      "json_bytes": 829453,
-     "tex_bytes": 0
+     "tex_bytes": 2308940
     }
    ],
    "n_variants": 1,
    "max_bones": 118,
    "max_anims": 10,
-   "tex_mb": 0.0
+   "tex_mb": 2.2
   },
   {
    "name": "fengrun",
@@ -1218,9 +1393,11 @@
      "pages": [
       {
        "page": "fengrun.png",
-       "file": "../characters/fengrun/textures/fengrun.png"
+       "file": "../characters/fengrun/textures/fengrun2.png"
       }
      ],
+     "page_meta": [],
+     "page_matched": false,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1279,7 +1456,7 @@
      "x": -175.67,
      "y": 68.04,
      "json_bytes": 580243,
-     "tex_bytes": 0
+     "tex_bytes": 1855605
     },
     {
      "label": "fengrun__var1",
@@ -1293,6 +1470,17 @@
        "file": "../characters/fengrun/textures/fengrun.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "fengrun.png",
+       "src": "scenes/00_main/fengrun_739.png",
+       "declared": "1747x1747",
+       "actual": "2048x2048",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1350,13 +1538,13 @@
      "x": -175.67,
      "y": 68.04,
      "json_bytes": 481411,
-     "tex_bytes": 0
+     "tex_bytes": 1855605
     }
    ],
    "n_variants": 2,
    "max_bones": 105,
    "max_anims": 5,
-   "tex_mb": 0.0
+   "tex_mb": 3.54
   },
   {
    "name": "duke",
@@ -1374,6 +1562,17 @@
        "file": "../characters/duke/textures/duke.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "duke.png",
+       "src": "scenes/00_main/duke_661.png",
+       "declared": "1575x1575",
+       "actual": "2048x2048",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1433,7 +1632,7 @@
      "x": -171.23,
      "y": -30.14,
      "json_bytes": 566531,
-     "tex_bytes": 0
+     "tex_bytes": 1795035
     },
     {
      "label": "duke__var2",
@@ -1447,6 +1646,17 @@
        "file": "../characters/duke/textures/duke.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "duke.png",
+       "src": "scenes/00_main/duke_661.png",
+       "declared": "1575x1575",
+       "actual": "2048x2048",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1506,13 +1716,13 @@
      "x": -171.23,
      "y": -30.14,
      "json_bytes": 566531,
-     "tex_bytes": 0
+     "tex_bytes": 1795035
     }
    ],
    "n_variants": 2,
    "max_bones": 79,
    "max_anims": 5,
-   "tex_mb": 0.0
+   "tex_mb": 3.42
   },
   {
    "name": "shuangmawei",
@@ -1527,9 +1737,20 @@
      "pages": [
       {
        "page": "shuangmawei.png",
-       "file": "../characters/shuangmawei/textures/shuangmawei.png"
+       "file": "../characters/shuangmawei/textures/shuangmawei__shuangmawei__var1.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "shuangmawei.png",
+       "src": "scenes/00_main/shuangmawei_294.png",
+       "declared": "1488x567",
+       "actual": "1024x512",
+       "score": 0.993,
+       "npool": 3
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1591,7 +1812,7 @@
      "x": -141.98,
      "y": -7.92,
      "json_bytes": 788237,
-     "tex_bytes": 0
+     "tex_bytes": 150246
     },
     {
      "label": "shuangmawei__var2",
@@ -1602,9 +1823,20 @@
      "pages": [
       {
        "page": "shuangmawei.png",
-       "file": "../characters/shuangmawei/textures/shuangmawei.png"
+       "file": "../characters/shuangmawei/textures/shuangmawei__shuangmawei__var1.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "shuangmawei.png",
+       "src": "scenes/00_main/shuangmawei_294.png",
+       "declared": "1488x567",
+       "actual": "1024x512",
+       "score": 0.993,
+       "npool": 3
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1666,7 +1898,7 @@
      "x": -161.7,
      "y": -7.92,
      "json_bytes": 1447778,
-     "tex_bytes": 0
+     "tex_bytes": 150246
     },
     {
      "label": "shuangmawei__var3",
@@ -1677,9 +1909,20 @@
      "pages": [
       {
        "page": "shuangmawei.png",
-       "file": "../characters/shuangmawei/textures/shuangmawei.png"
+       "file": "../characters/shuangmawei/textures/shuangmawei__shuangmawei__var1.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "shuangmawei.png",
+       "src": "scenes/00_main/shuangmawei_294.png",
+       "declared": "1488x567",
+       "actual": "1024x512",
+       "score": 0.993,
+       "npool": 3
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1741,13 +1984,13 @@
      "x": null,
      "y": null,
      "json_bytes": 1778126,
-     "tex_bytes": 0
+     "tex_bytes": 150246
     }
    ],
    "n_variants": 3,
    "max_bones": 67,
    "max_anims": 10,
-   "tex_mb": 0.0
+   "tex_mb": 0.43
   },
   {
    "name": "zhouwan",
@@ -1765,6 +2008,17 @@
        "file": "../characters/zhouwan/textures/zhouwan.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "zhouwan.png",
+       "src": "scenes/00_main/zhouwan_140.png",
+       "declared": "2427x526",
+       "actual": "2048x512",
+       "score": 0.981,
+       "npool": 2
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1827,7 +2081,7 @@
      "x": -182.82,
      "y": 103.74,
      "json_bytes": 386267,
-     "tex_bytes": 0
+     "tex_bytes": 682136
     },
     {
      "label": "zhouwan__var2",
@@ -1841,6 +2095,17 @@
        "file": "../characters/zhouwan/textures/zhouwan.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "zhouwan.png",
+       "src": "scenes/00_main/zhouwan_140.png",
+       "declared": "2427x526",
+       "actual": "2048x512",
+       "score": 0.981,
+       "npool": 2
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1902,7 +2167,7 @@
      "x": -182.82,
      "y": 103.74,
      "json_bytes": 386259,
-     "tex_bytes": 0
+     "tex_bytes": 682136
     },
     {
      "label": "zhouwan__var4",
@@ -1916,6 +2181,17 @@
        "file": "../characters/zhouwan/textures/zhouwan.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "zhouwan.png",
+       "src": "scenes/00_main/zhouwan_140.png",
+       "declared": "2427x526",
+       "actual": "2048x512",
+       "score": 0.981,
+       "npool": 2
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -1976,13 +2252,13 @@
      "x": -182.82,
      "y": 103.74,
      "json_bytes": 325753,
-     "tex_bytes": 0
+     "tex_bytes": 682136
     }
    ],
    "n_variants": 3,
    "max_bones": 58,
    "max_anims": 8,
-   "tex_mb": 0.0
+   "tex_mb": 1.95
   },
   {
    "name": "boss jiejie",
@@ -2000,6 +2276,17 @@
        "file": "../characters/boss jiejie/textures/boss jiejie.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "boss jiejie.png",
+       "src": "scenes/00_main/boss jiejie_343.png",
+       "declared": "1985x1985",
+       "actual": "2048x2048",
+       "score": 0.987,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2057,7 +2344,7 @@
      "x": -557.01,
      "y": -7,
      "json_bytes": 317733,
-     "tex_bytes": 0
+     "tex_bytes": 2280430
     },
     {
      "label": "boss jiejie__var1",
@@ -2071,6 +2358,17 @@
        "file": "../characters/boss jiejie/textures/boss jiejie.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "boss jiejie.png",
+       "src": "scenes/00_main/boss jiejie_343.png",
+       "declared": "1985x1985",
+       "actual": "2048x2048",
+       "score": 0.987,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2127,13 +2425,13 @@
      "x": -557.01,
      "y": -7,
      "json_bytes": 269454,
-     "tex_bytes": 0
+     "tex_bytes": 2280430
     }
    ],
    "n_variants": 2,
    "max_bones": 48,
    "max_anims": 6,
-   "tex_mb": 0.0
+   "tex_mb": 4.35
   },
   {
    "name": "npc",
@@ -2151,6 +2449,17 @@
        "file": "../characters/npc/textures/npc.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "npc.png",
+       "src": "scenes/00_main/npc_131.png",
+       "declared": "802x4072",
+       "actual": "512x2048",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2182,13 +2491,13 @@
      "x": 92.55,
      "y": 106.02,
      "json_bytes": 300076,
-     "tex_bytes": 0
+     "tex_bytes": 605385
     }
    ],
    "n_variants": 1,
    "max_bones": 48,
    "max_anims": 8,
-   "tex_mb": 0.0
+   "tex_mb": 0.58
   },
   {
    "name": "xiameng",
@@ -2203,9 +2512,20 @@
      "pages": [
       {
        "page": "xiameng.png",
-       "file": "../characters/xiameng/textures/xiameng.png"
+       "file": "../characters/xiameng/textures/xiameng__xiameng.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "xiameng.png",
+       "src": "scenes/02_designer_0/xiameng_32.png",
+       "declared": "1311x1311",
+       "actual": "1024x1024",
+       "score": 0.991,
+       "npool": 4
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2278,7 +2598,7 @@
      "x": -215.01,
      "y": -11.94,
      "json_bytes": 528565,
-     "tex_bytes": 0
+     "tex_bytes": 523186
     },
     {
      "label": "xiameng__var5",
@@ -2289,9 +2609,20 @@
      "pages": [
       {
        "page": "xiameng.png",
-       "file": "../characters/xiameng/textures/xiameng.png"
+       "file": "../characters/xiameng/textures/xiameng__xiameng.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "xiameng.png",
+       "src": "scenes/02_designer_0/xiameng_32.png",
+       "declared": "1311x1311",
+       "actual": "1024x1024",
+       "score": 0.991,
+       "npool": 4
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2364,7 +2695,7 @@
      "x": -215.01,
      "y": -11.94,
      "json_bytes": 528565,
-     "tex_bytes": 0
+     "tex_bytes": 523186
     },
     {
      "label": "xiameng__var2",
@@ -2375,9 +2706,20 @@
      "pages": [
       {
        "page": "xiameng.png",
-       "file": "../characters/xiameng/textures/xiameng.png"
+       "file": "../characters/xiameng/textures/xiameng__xiameng.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "xiameng.png",
+       "src": "scenes/02_designer_0/xiameng_32.png",
+       "declared": "1311x1311",
+       "actual": "1024x1024",
+       "score": 0.991,
+       "npool": 4
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2449,7 +2791,7 @@
      "x": -215.01,
      "y": -11.94,
      "json_bytes": 519451,
-     "tex_bytes": 0
+     "tex_bytes": 523186
     },
     {
      "label": "xiameng__var7",
@@ -2460,9 +2802,20 @@
      "pages": [
       {
        "page": "xiameng.png",
-       "file": "../characters/xiameng/textures/xiameng.png"
+       "file": "../characters/xiameng/textures/xiameng__xiameng.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "xiameng.png",
+       "src": "scenes/02_designer_0/xiameng_32.png",
+       "declared": "1311x1311",
+       "actual": "1024x1024",
+       "score": 0.991,
+       "npool": 4
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2531,7 +2884,7 @@
      "x": -215.01,
      "y": -11.94,
      "json_bytes": 467168,
-     "tex_bytes": 0
+     "tex_bytes": 523186
     },
     {
      "label": "xiameng__var6",
@@ -2542,9 +2895,20 @@
      "pages": [
       {
        "page": "xiameng.png",
-       "file": "../characters/xiameng/textures/xiameng.png"
+       "file": "../characters/xiameng/textures/xiameng__xiameng.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "xiameng.png",
+       "src": "scenes/02_designer_0/xiameng_32.png",
+       "declared": "1311x1311",
+       "actual": "1024x1024",
+       "score": 0.991,
+       "npool": 4
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2610,7 +2974,7 @@
      "x": -215.01,
      "y": -11.94,
      "json_bytes": 421876,
-     "tex_bytes": 0
+     "tex_bytes": 523186
     },
     {
      "label": "xiameng__var8",
@@ -2621,9 +2985,20 @@
      "pages": [
       {
        "page": "xiameng.png",
-       "file": "../characters/xiameng/textures/xiameng.png"
+       "file": "../characters/xiameng/textures/xiameng__xiameng.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "xiameng.png",
+       "src": "scenes/02_designer_0/xiameng_32.png",
+       "declared": "1311x1311",
+       "actual": "1024x1024",
+       "score": 0.991,
+       "npool": 4
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2687,13 +3062,13 @@
      "x": -215.01,
      "y": -11.94,
      "json_bytes": 383355,
-     "tex_bytes": 0
+     "tex_bytes": 523186
     }
    ],
    "n_variants": 6,
    "max_bones": 43,
    "max_anims": 18,
-   "tex_mb": 0.0
+   "tex_mb": 2.99
   },
   {
    "name": "chenfei",
@@ -2711,6 +3086,17 @@
        "file": "../characters/chenfei/textures/chenfei.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "chenfei.png",
+       "src": "scenes/00_main/chenfei_257.png",
+       "declared": "1541x1541",
+       "actual": "2048x2048",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2767,7 +3153,7 @@
      "x": 307,
      "y": 122,
      "json_bytes": 389719,
-     "tex_bytes": 0
+     "tex_bytes": 1889611
     },
     {
      "label": "chenfei__var2",
@@ -2781,6 +3167,17 @@
        "file": "../characters/chenfei/textures/chenfei.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "chenfei.png",
+       "src": "scenes/00_main/chenfei_257.png",
+       "declared": "1541x1541",
+       "actual": "2048x2048",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2840,13 +3237,13 @@
      "x": 307,
      "y": 122,
      "json_bytes": 390161,
-     "tex_bytes": 0
+     "tex_bytes": 1889611
     }
    ],
    "n_variants": 2,
    "max_bones": 40,
    "max_anims": 5,
-   "tex_mb": 0.0
+   "tex_mb": 3.6
   },
   {
    "name": "fengqing",
@@ -2864,6 +3261,17 @@
        "file": "../characters/fengqing/textures/fengqing.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "fengqing.png",
+       "src": "scenes/00_main/fengqing_1340.png",
+       "declared": "1143x1143",
+       "actual": "1024x1024",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2919,7 +3327,7 @@
      "x": 428.05,
      "y": 198.45,
      "json_bytes": 155638,
-     "tex_bytes": 0
+     "tex_bytes": 556391
     },
     {
      "label": "fengqing__var2",
@@ -2933,6 +3341,17 @@
        "file": "../characters/fengqing/textures/fengqing.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "fengqing.png",
+       "src": "scenes/00_main/fengqing_1340.png",
+       "declared": "1143x1143",
+       "actual": "1024x1024",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -2986,13 +3405,13 @@
      "x": 428.05,
      "y": 198.45,
      "json_bytes": 155470,
-     "tex_bytes": 0
+     "tex_bytes": 556391
     }
    ],
    "n_variants": 2,
    "max_bones": 30,
    "max_anims": 2,
-   "tex_mb": 0.0
+   "tex_mb": 1.06
   },
   {
    "name": "chenxin",
@@ -3010,6 +3429,17 @@
        "file": "../characters/chenxin/textures/chenxin.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "chenxin.png",
+       "src": "scenes/00_main/chenxin_1188.png",
+       "declared": "1221x1072",
+       "actual": "1024x1024",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -3050,13 +3480,13 @@
      "x": -183.46,
      "y": 28.44,
      "json_bytes": 207006,
-     "tex_bytes": 0
+     "tex_bytes": 555167
     }
    ],
    "n_variants": 1,
    "max_bones": 29,
    "max_anims": 3,
-   "tex_mb": 0.0
+   "tex_mb": 0.53
   },
   {
    "name": "vine-pro",
@@ -3074,6 +3504,17 @@
        "file": "../characters/vine-pro/textures/vine-pro.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "vine-pro.png",
+       "src": "scenes/05_designer_a/vine-pro_101.png",
+       "declared": "966x966",
+       "actual": "1024x1024",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -3098,13 +3539,13 @@
      "x": -87.43,
      "y": -6.64,
      "json_bytes": 32417,
-     "tex_bytes": 0
+     "tex_bytes": 117871
     }
    ],
    "n_variants": 1,
    "max_bones": 18,
    "max_anims": 1,
-   "tex_mb": 0.0
+   "tex_mb": 0.11
   },
   {
    "name": "chat_y",
@@ -3122,6 +3563,17 @@
        "file": "../characters/chat_y/textures/chat_y.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "chat_y.png",
+       "src": "scenes/01_Art_0/chat_y_19.png",
+       "declared": "314x314",
+       "actual": "197x502",
+       "score": 0.0,
+       "npool": 2
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -3147,13 +3599,13 @@
      "x": -129.29,
      "y": 0.66,
      "json_bytes": 30504,
-     "tex_bytes": 0
+     "tex_bytes": 51252
     }
    ],
    "n_variants": 1,
    "max_bones": 15,
    "max_anims": 2,
-   "tex_mb": 0.0
+   "tex_mb": 0.05
   },
   {
    "name": "skeleton",
@@ -3168,9 +3620,20 @@
      "pages": [
       {
        "page": "skeleton.png",
-       "file": "../characters/skeleton/textures/skeleton.png"
+       "file": "../characters/skeleton/textures/skeleton__skeleton__var2.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "skeleton.png",
+       "src": "scenes/11_designer_c/skeleton_20.png",
+       "declared": "282x255",
+       "actual": "256x256",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -3196,7 +3659,7 @@
      "x": -118.5,
      "y": -2.47,
      "json_bytes": 38730,
-     "tex_bytes": 0
+     "tex_bytes": 56160
     },
     {
      "label": "skeleton__var1",
@@ -3210,6 +3673,17 @@
        "file": "../characters/skeleton/textures/skeleton.png"
       }
      ],
+     "page_meta": [
+      {
+       "page": "skeleton.png",
+       "src": "scenes/00_main/skeleton_488.png",
+       "declared": "1311x582",
+       "actual": "1024x512",
+       "score": 0.0,
+       "npool": 1
+      }
+     ],
+     "page_matched": true,
      "missing_pages": [],
      "atlas_candidates": [
       {
@@ -3234,101 +3708,13 @@
      "x": -290.24,
      "y": 6.82,
      "json_bytes": 30119,
-     "tex_bytes": 0
+     "tex_bytes": 137516
     }
    ],
    "n_variants": 2,
    "max_bones": 5,
    "max_anims": 2,
-   "tex_mb": 0.0
-  },
-  {
-   "name": "男厕小便池 内部淤泥中的钥匙-提交版本",
-   "dir": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本",
-   "variants": [
-    {
-     "label": "男厕小便池 内部淤泥中的钥匙-提交版本__var1",
-     "json": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本__var1.json",
-     "atlas": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本.atlas.txt",
-     "atlas_regions": 1,
-     "coverage": 1.001,
-     "pages": [
-      {
-       "page": "男厕小便池 内部淤泥中的钥匙-提交版本.png",
-       "file": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/textures/男厕小便池 内部淤泥中的钥匙-提交版本.png"
-      }
-     ],
-     "missing_pages": [],
-     "atlas_candidates": [
-      {
-       "file": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本.atlas.txt",
-       "coverage": 1.0
-      }
-     ],
-     "spine": "3.8.95",
-     "bones": 3,
-     "slots": 1,
-     "skins": [
-      "default"
-     ],
-     "events": [],
-     "anims": [
-      "idle",
-      "specal"
-     ],
-     "n_anims": 2,
-     "ik": 0,
-     "width": 1059.2,
-     "height": 1017.08,
-     "x": -503.88,
-     "y": 2.3,
-     "json_bytes": 9766,
-     "tex_bytes": 0
-    },
-    {
-     "label": "男厕小便池 内部淤泥中的钥匙-提交版本__var2",
-     "json": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本__var2.json",
-     "atlas": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本.atlas.txt",
-     "atlas_regions": 1,
-     "coverage": 1.001,
-     "pages": [
-      {
-       "page": "男厕小便池 内部淤泥中的钥匙-提交版本.png",
-       "file": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/textures/男厕小便池 内部淤泥中的钥匙-提交版本.png"
-      }
-     ],
-     "missing_pages": [],
-     "atlas_candidates": [
-      {
-       "file": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本.atlas.txt",
-       "coverage": 1.0
-      }
-     ],
-     "spine": "3.8.95",
-     "bones": 3,
-     "slots": 1,
-     "skins": [
-      "default"
-     ],
-     "events": [],
-     "anims": [
-      "idle",
-      "specal"
-     ],
-     "n_anims": 2,
-     "ik": 0,
-     "width": 1059.2,
-     "height": 1017.08,
-     "x": -503.88,
-     "y": 2.3,
-     "json_bytes": 7874,
-     "tex_bytes": 0
-    }
-   ],
-   "n_variants": 2,
-   "max_bones": 3,
-   "max_anims": 2,
-   "tex_mb": 0.0
+   "tex_mb": 0.18
   }
  ]
 }

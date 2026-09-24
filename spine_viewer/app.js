@@ -164,7 +164,68 @@
       r.u *= kx; r.u2 *= kx; r.v *= ky; r.v2 *= ky;
       fixed++;
     }
+    // 关键补充：MeshAttachment.updateUVs 用 texture.getImage() 的尺寸做 UV 分母，
+    // 但那是 Unity POT 缩放后的实际尺寸；region.u 上面已按声明尺寸修正 ——
+    // 分母不一致会让 mesh 的 UV 跨度偏差 k 倍，部件（尤其脸部小 mesh）碎裂错位。
+    // 统一分母：让 getImage() 返回 atlas 声明的页尺寸，
+    // GPU 纹理是线性映射的，UV 按声明空间给定后采样位置自然正确。
+    for (const page of atlas.pages || []) {
+      const d = sizes[page.name];
+      if (!d || !d.w || !d.h || !page.texture) continue;
+      if (page.width === d.w && page.height === d.h) continue;
+      try { page.texture._realImage = page.texture.getImage(); } catch (e) { /* ignore */ }
+      page.texture.getImage = function () { return { width: d.w, height: d.h }; };
+    }
     return fixed;
+  }
+
+  // 老 Spine 2.x 导出格式：mesh 的 uvs 字段是相对 region 矩形的 0-1 归一化坐标，
+  // 2.x runtime 用 u + (u2-u)*nx 直接插值；而 3.8 runtime 把它当像素坐标用，
+  // 导致 mesh UV 全部塌缩到 region 角落采样（黑剪影/碎裂，gujia 即此情况）。
+  // 检测：regionUVs 最大值 <= 1.001 即判为归一化，改用 2.x 插值公式直接算最终 UV。
+  // （已用 NCP2_body 数值验证：顶点全部落回 region 页内矩形。）
+  function patchLegacyMeshUVs() {
+    const proto = S.rt.MeshAttachment && S.rt.MeshAttachment.prototype;
+    if (!proto || proto.__legacyUVPatched) return;
+    proto.__legacyUVPatched = true;
+    const orig = proto.updateUVs;
+    proto.updateUVs = function () {
+      orig.call(this); // 先走原逻辑：负责分配 this.uvs 数组
+      try {
+        const r = this.region;
+        if (r && this.regionUVs && this.uvs && this.uvs.length) {
+          let mx = 0;
+          for (let i = 0; i < this.regionUVs.length; i++) if (this.regionUVs[i] > mx) mx = this.regionUVs[i];
+          if (mx <= 1.001) {
+            const uvs = this.uvs;
+            const n = uvs.length;
+            // rotate 插值方向组合可由 URL 参数 ?guv=1..4 覆盖（默认 3，实测正确）
+            const mode = (S.guvMode || 3);
+            if (r.rotate) { // degrees 90
+              for (let i = 0; i < n; i += 2) {
+                const nx = this.regionUVs[i], ny = this.regionUVs[i + 1];
+                let fu, fv;
+                if (mode === 1) { fu = 1 - ny; fv = nx; }
+                else if (mode === 2) { fu = ny; fv = nx; }
+                else if (mode === 3) { fu = ny; fv = 1 - nx; }
+                else { fu = 1 - ny; fv = 1 - nx; }
+                uvs[i] = r.u + (r.u2 - r.u) * fu;
+                uvs[i + 1] = r.v + (r.v2 - r.v) * fv;
+              }
+            } else {
+              // 非 rotate mesh 的 v 方向：nrv=2（v 用 ny）对全部正立贴图角色正确；
+              // gujia 的贴图页本身 Y 轴颠倒（美术导出即倒），需 nrv=1（v 用 1-ny）。
+              // URL ?nrv= 可强制覆盖所有角色（调试用）。
+              const nrv = (!S.nrvForced && S.curChar && /gujia/i.test(S.curChar)) ? 1 : (S.nrvMode || 2);
+              for (let i = 0; i < n; i += 2) {
+                uvs[i] = r.u + (r.u2 - r.u) * this.regionUVs[i];
+                uvs[i + 1] = r.v + (r.v2 - r.v) * (nrv === 1 ? 1 - this.regionUVs[i + 1] : this.regionUVs[i + 1]);
+              }
+            }
+          }
+        }
+      } catch (e) { /* ignore */ }
+    };
   }
 
   async function loadVariant(v, charName) {
@@ -198,6 +259,7 @@
         return t || (S.rt.FakeTexture ? new S.rt.FakeTexture() : null);
       });
       // 必须在 readSkeletonData 之前修正：mesh 的 uvs 是在解析时按 region.u/v 算出来并缓存的
+      patchLegacyMeshUVs();
       try {
         const n = fixAtlasUVs(S.atlas, atlasText);
         if (n) console.log('[atlas] 贴图与声明页尺寸不一致，已修正 ' + n + ' 个区域的 UV');
@@ -406,11 +468,15 @@
       '<h4>源文件</h4>' +
       '<div class="path">' + esc(v.json) + '</div>' +
       '<div class="path">' + esc(v.atlas || '（无）') + '</div>' + pages +
+      ((v.page_meta || []).length ?
+        '<div class="path">' + (v.page_meta || []).map(p =>
+          esc('页 ' + p.page + ' ← ' + (p.src || '') + '（声明 ' + (p.declared || '?') +
+              ' / 实际 ' + (p.actual || '?') + '，互证 ' + (p.score || '-') + '）')).join('</div><div class="path">') + '</div>' : '') +
       kv('atlas ↔ 骨架命中', Math.round(Math.min(1, v.coverage || 0) * 100) + '%') +
       ((v.missing_pages || []).length ?
         '<div class="warnbox">缺贴图页：' + esc(v.missing_pages.join(', ')) + '</div>' : '') +
-      ((v.coverage || 0) < 0.9 ?
-        '<div class="warnbox">命中率偏低，可换 atlas：<br><select id="atlasSel">' + cands + '</select></div>' : '') +
+      ((v.atlas_candidates || []).length > 1 ?
+        '<div class="warnbox">同一角色有多个 atlas 变体，页贴图已按内容互证逐变体配对；如仍可疑可手动换 atlas：<br><select id="atlasSel">' + cands + '</select></div>' : '') +
       '<h4>动画（' + (d.animations || []).length + '）</h4><div class="chips">' + (animChips || '<span class="muted">无</span>') + '</div>' +
       '<h4>皮肤</h4><div class="chips">' + skinChips + '</div>';
 
@@ -483,16 +549,29 @@
     status(S.manifest.n_characters + ' 个角色 / ' + S.manifest.n_variants + ' 份骨架 · 左侧点开角色，再选一份骨架');
     // 默认加载第一个角色；支持 ?char=<角色名> 直达
     const q = new URLSearchParams(location.search);
+    S.guvMode = parseInt(q.get('guv') || '3', 10) || 3;
+    // 非 rotate mesh 的 v 方向：2 = v 用 ny（默认，正立贴图组验证：chenfei/boss_jiejie/BOSSmeimei 等）；
+    // gujia 贴图页 Y 颠倒，在补丁内按角色名单独走 nrv=1；URL ?nrv= 强制覆盖所有角色
+    S.nrvMode = q.get('nrv') ? (parseInt(q.get('nrv'), 10) || 2) : 2;
+    S.nrvForced = !!q.get('nrv');
     let target = S.manifest.characters[0];
     const want = q.get('char');
     if (want) {
       const c = S.manifest.characters.find(x => x.name.toLowerCase() === want.toLowerCase());
       if (c) target = c; else toast('没有角色 ' + want);
     }
+    // ?v=<骨架变体标签> 可指定该角色下的具体一份骨架
+    const wantV = q.get('v');
+    let pick = target.variants[0];
+    if (wantV) {
+      const hit = target.variants.find(x => x.label === wantV) ||
+        target.variants.find(x => x.label.toLowerCase() === wantV.toLowerCase());
+      if (hit) pick = hit; else toast('没有骨架 ' + wantV);
+    }
     if (target) {
       const head = $('charList').querySelector('.char[data-char="' + CSS.escape(target.name) + '"]');
       if (head) head.classList.add('open');
-      loadVariant(target.variants[0], target.name);
+      loadVariant(pick, target.name);
     }
   }
 
@@ -501,4 +580,7 @@
     status('初始化失败：' + e.message);
     toast('初始化失败：' + e.message, 8000);
   });
+
+  // 调试句柄：console 里可用 S.atlas.regions、S.skeleton 等排查
+  window.S = S;
 })();

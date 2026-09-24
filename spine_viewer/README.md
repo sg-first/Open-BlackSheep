@@ -56,8 +56,32 @@ spine_viewer/
 - `manifest.json` 里每个骨架都带 `atlas_candidates`：脚本按「骨架附件名 ∩ atlas region 名」算命中率，
   在**全库**（不只同目录）挑最优 atlas 配对，因此跨 bundle 复用也能配上。
 - 贴图被 Unity 导入时缩放过（声明页尺寸 != PNG 尺寸），查看器会用 `fixAtlasUVs()` 按声明页尺寸修正 UV
-- 目前 43 份中只有 `vine-pro` 命中率 50%，其余 100%（无头冒烟 43/43 构建 + 播放成功）。
+- 目前 41 份中只有 `vine-pro` 命中率 50%，其余 100%。
 - 角色贴图是 RGBA8888 PNG，尺寸 2048² 上下，一部分角色有多张图集页。
+
+## 每个变体独立配对页贴图
+
+同一角色的多份 `.atlas` 变体声明的页尺寸 / 排布各不相同（如 nanzhu 的 5 份 atlas
+分别声明 1558² / 1558² / 1606² / 1700² / 2041²），而 Unity 源包里同名贴图
+`nanzhu` 有 8 份、内容互异的有 5 份 —— **每个变体只能配其中一张**，配错就是
+"衣服对、脸/手错" 的局部错位。
+
+配对用跨变体内容互证解出（`unpack/_index/match_atlas_pages.py` → `page_map.json`）：
+不同变体间同名的 region（如 `Eye_1`）画的是同一份美术资源，若两份 atlas 各自配到的
+PNG 都正确，按各自 rect 裁出的同名 region 小图应当一致。穷举「变体 → 候选图」的全部
+指派，取跨变体相似度均值最高者。nanzhu 的配对矩阵对角线 ~0.99、非对角 ~0.82，区分明显。
+
+| 变体（atlas） | 声明页 | 配到的 PNG（源包 path_id） |
+|---|---|---|
+| nanzhu__var1 | 1558² | scenes/00_main/nanzhu_704.png |
+| nanzhu__var4 | 1558² | scenes/00_main/nanzhu_215.png |
+| nanzhu__var5 | 1606² | scenes/00_main/nanzhu_900.png |
+| nanzhu__var6 | 1700² | scenes/00_main/nanzhu_711.png |
+| nanzhu__var8 | 2041² | scenes/00_main/nanzhu_929.png |
+
+落盘规则：`characters/<角色>/textures/<页名>__<atlas变体>.png`（每变体一份，
+不再共用）；与旧 `<页名>.png` 内容一致时直接复用旧文件。manifest 里每个骨架的
+`page_meta` 记录了声明/实际尺寸、互证分数与源包路径。
 
 ## 已知限制
 
