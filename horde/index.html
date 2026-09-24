@@ -41,6 +41,7 @@
   .row { display:flex; gap:8px; align-items:center; font-size:12px; color:var(--dim); }
   .row input[type=range] { flex:1 }
   #panel .tip { margin-top:9px; font-size:11px; color:#6b7688; line-height:1.5; }
+  #panel .dim2 { color:#5d6675; font-size:11px; }
   #panel.fold .body { display:none }
   #fold { position:absolute; top:8px; right:10px; cursor:pointer; color:var(--dim); font-size:12px; }
 
@@ -80,9 +81,10 @@
   <div id="fold">[ – ]</div>
   <h3>设置</h3>
   <div class="body">
-    <label>远层背景</label><select id="bgFar"></select>
-    <label>中层背景</label><select id="bgMid"></select>
-    <label>近层背景（前景）</label><select id="bgNear"></select>
+    <label>美术背景层场景</label><select id="bgScene"></select>
+    <label>底图 <span class="dim2">（房间整版 / 长卷，铺满画面）</span></label><select id="bgBase"></select>
+    <label>叠加上层 <span class="dim2">（可选，需带透明通道）</span></label><select id="bgOver"></select>
+    <label>前景 <span class="dim2">（画在角色之上，做遮挡）</span></label><select id="bgFront"></select>
     <label><input type="checkbox" id="optGround" checked> 显示地面与地平线</label>
     <label>同屏敌人上限 <span id="capv">18</span></label>
     <div class="row"><input type="range" id="optCap" min="4" max="40" value="18"></div>
@@ -105,7 +107,7 @@
 <script src="../spine_viewer/vendor/spine-webgl.js"></script>
 <script>
   // 开发期无缓存加载：async=false 保证按数组顺序执行（game.js 依赖前三个）
-  for (const f of ['common.js', 'enemy.js', 'player.js', 'game.js']) {
+  for (const f of ['bg_art.js', 'common.js', 'enemy.js', 'player.js', 'game.js']) {
     const s = document.createElement('script');
     s.src = f + '?t=' + Date.now(); s.async = false;
     document.body.appendChild(s);

@@ -1,5 +1,5 @@
 /* 横板射击 · 割草
- * 场景素材来自 _index/bg_files.tsv（153 张 1920x1080 背景），敌人用 duke 等角色骨架。
+ * 背景只用清单里的美术背景层（scenes/Art_*），按原游戏 1080 设计视口等比缩放；敌人用 duke 等角色骨架。
  * 三层画布：#bg 视差背景(2D) · #gl 角色(WebGL/Spine) · #fx 前景与特效(2D)
  */
 (() => {
@@ -56,60 +56,92 @@
   };
 
   // ---------------------------------------------------------------- 背景
-  const BG = { list: [], imgs: {}, far: null, mid: null, near: null };
+  // 只能用清单里的「美术背景层」（Art_* 9 个场景）。designer_* 是玩法层（背景和道具混在一起）、
+  // 00_main 是 UI 常驻层，拿它们的图当背景会穿帮，所以这里直接按场景白名单过滤。
+  const ART_SCENES = ['01_Art_0', '04_Art_1', '06_Art_a', '08_art_X', '10_Art_b',
+                      '12_Art_c', '14_Art_d', '16_Art_2', '18_Art_3'];
+  // 素材是按原游戏设计视口画的：1 图像像素 = 1 设计像素，设计视口高 1080
+  // （房间整版一律 1080 高，长卷 530/827/936…，条带 111/281/331…）。
+  // 所以缩放只能跟屏幕高走 sc = H/1080，不能按每张图自身高度拉满——那样比例全错。
+  const DESIGN_H = 1080;
+  const BG = { scenes: {}, order: [], imgs: {}, cur: '', base: null, over: null, front: null };
 
-  async function loadBgList() {
-    const t = await fetch('../_index/bg_files.tsv').then(r => r.text());
-    const lines = t.split(/\r?\n/).filter(Boolean);
-    const head = lines[0].split('\t');
-    const iScene = head.indexOf('scene'), iFile = head.indexOf('file');
-    const seen = new Set();
-    for (let i = 1; i < lines.length; i++) {
-      const c = lines[i].split('\t');
-      const scene = c[iScene], file = c[iFile];
-      if (!file || !/\.png$/i.test(file)) continue;
-      const key = scene + '/' + file;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      BG.list.push({ scene, file, url: '../scenes/' + scene + '/' + file, label: scene + ' · ' + file });
+  // 清单是构建期固化在 bg_art.js 里的静态数据（判定结果不会变），运行时不再 fetch _index。
+  // ART_SCENES 只是交叉校验，防止清单里混进非美术层的场景。
+  function loadBgList() {
+    for (const [scene, file, w, h] of (window.BG_ART || [])) {
+      if (!file || !/\.png$/i.test(file) || ART_SCENES.indexOf(scene) < 0) continue;
+      (BG.scenes[scene] || (BG.scenes[scene] = [])).push({
+        scene, file, w: +w || 0, h: +h || 0,
+        url: '../scenes/' + scene + '/' + file,
+      });
     }
-    BG.list.sort((a, b) => a.label.localeCompare(b.label));
-    const fill = (sel, def) => {
-      sel.innerHTML = '<option value="">（无）</option>' +
-        BG.list.map((b, i) => '<option value="' + i + '">' + b.label + '</option>').join('');
-      if (def) {
-        const idx = BG.list.findIndex(b => b.label.indexOf(def) >= 0);
-        if (idx >= 0) sel.value = String(idx);
-      }
-      sel.onchange = () => pick(sel);
-    };
-    fill($('bgFar'), '00_main/BG1_977');
-    fill($('bgMid'), '00_main/BG2_1203');
-    fill($('bgNear'), '');
-    await pick($('bgFar')); await pick($('bgMid')); await pick($('bgNear'));
+    BG.order = ART_SCENES.filter(s => BG.scenes[s] && BG.scenes[s].length);
+    if (!BG.order.length) return Promise.resolve();
+    const ss = $('bgScene');
+    ss.innerHTML = BG.order.map(s =>
+      '<option value="' + s + '">' + s + '（' + BG.scenes[s].length + ' 张）</option>').join('');
+    ss.onchange = () => applyScene(ss.value);
+    return applyScene(BG.order.indexOf('01_Art_0') >= 0 ? '01_Art_0' : BG.order[0]);
+  }
+
+  // 清单里的美术背景图是「同一场景的多个房间 / 分区」，不是一个画面的远中近分层
+  // （01_Art_0 是 street_* 街道长卷，10_Art_b 是 BG_Hall_Bsite_* 大厅卷 + Room* 房间整版）。
+  // 不透明底图一铺就盖住下层，所以默认只铺一张，另两层留给用户按需叠加。
+  function sizeKind(b) {
+    if (b.h > b.w * 1.2) return '竖版';              // 08_art_X 的 1318×2048 楼梯废墟
+    if (b.h >= DESIGN_H * 0.9) return '整版';        // 1080 高的房间底板
+    if (b.h >= DESIGN_H * 0.55) return '长卷';       // 827/936/979 的横向长卷
+    if (b.w >= b.h * 2.4) return '条带';             // 111/281/331/530 的扁平条带
+    return '中景';
+  }
+
+  async function applyScene(scene) {
+    BG.cur = scene;
+    const list = BG.scenes[scene] || [];
+    let base = -1, bv = -Infinity;                     // 默认底图 = 最高的那张（整版房间 / 满屏长卷）
+    list.forEach((b, i) => { const v = b.h * 1e6 + b.w; if (v > bv) { bv = v; base = i; } });
+    const def = { bgBase: base, bgOver: -1, bgFront: -1 };
+    for (const id of ['bgBase', 'bgOver', 'bgFront']) {
+      const el = $(id);
+      el.innerHTML = '<option value="-1">（无）</option>' + list.map((b, i) =>
+        '<option value="' + i + '">' + b.file.replace(/\.png$/i, '') + ' · ' + b.w + '×' + b.h +
+        ' · ' + sizeKind(b) + '</option>').join('');
+      el.value = String(def[id]);
+      el.onchange = () => pick(el);
+    }
+    await Promise.all([pick($('bgBase')), pick($('bgOver')), pick($('bgFront'))]);
   }
 
   async function getImg(i) {
-    if (i === '' || i === null || i === undefined) return null;
-    const b = BG.list[+i];
+    const b = (BG.scenes[BG.cur] || [])[+i];
     if (!b) return null;
-    if (!BG.imgs[b.url]) BG.imgs[b.url] = await HORDE.loadImage(b.url).catch(() => null);
+    if (!BG.imgs[b.url]) BG.imgs[b.url] = await HORDE.loadImage(encodeURI(b.url)).catch(() => null);
     return BG.imgs[b.url];
   }
   async function pick(sel) {
     const img = await getImg(sel.value);
-    if (sel.id === 'bgFar') BG.far = img;
-    else if (sel.id === 'bgMid') BG.mid = img;
-    else BG.near = img;
+    if (sel.id === 'bgBase') BG.base = img;
+    else if (sel.id === 'bgOver') BG.over = img;
+    else BG.front = img;
+  }
+
+  // 统一换算：只按设计分辨率缩放，绝不按图片自身高度拉满
+  function layerBox(img) {
+    const sc = H / DESIGN_H;
+    const w = img.width * sc, h = img.height * sc;
+    // 接近满屏的整版房间：顶边贴屏幕顶（图内 y≈0.76*1080 的地板线正好落在 groundY=0.76H）
+    // 细长条带（远景/墙/天空）：底边坐在地平线上
+    const y = img.height >= DESIGN_H * 0.75 ? 0 : groundY - h;
+    return { w, h, y };
   }
 
   function drawLayer(img, parallax, alpha, tint) {
     if (!img) return;
-    const sc = H / img.height;
-    const w = img.width * sc, h = img.height * sc;
+    const { w, h, y } = layerBox(img);
     let x = -(((camX * parallax) % w) + w) % w;
     bgx.globalAlpha = alpha;
-    while (x < W) { bgx.drawImage(img, x, groundY - h, w, h); x += w; }
+    while (x < W) { bgx.drawImage(img, x, y, w, h); x += w; }
     bgx.globalAlpha = 1;
     if (tint) { bgx.fillStyle = tint; bgx.fillRect(0, 0, W, H); }
   }
@@ -120,8 +152,8 @@
     const sky = bgx.createLinearGradient(0, 0, 0, groundY);
     sky.addColorStop(0, '#111823'); sky.addColorStop(1, '#1d2735');
     bgx.fillStyle = sky; bgx.fillRect(0, 0, W, H);
-    drawLayer(BG.far, 0.18, 1, 'rgba(16,22,32,.34)');
-    drawLayer(BG.mid, 0.45, 1, 'rgba(16,22,32,.12)');
+    drawLayer(BG.base, 0.22, 1, 'rgba(16,22,32,.18)');
+    drawLayer(BG.over, 0.45, 1, null);
     if (!$('optGround').checked) return;
     // 地平线以下：地面
     const g = bgx.createLinearGradient(0, groundY, 0, H);
@@ -358,7 +390,7 @@
       tick();
     }
 
-    setT('读取背景清单…');
+    setT('装载背景…');
     await loadBgList();
     $('load').classList.add('hidden');
     startWave(1);
@@ -457,11 +489,11 @@
     fx.setTransform(dpr, 0, 0, dpr, 0, 0);
     fx.clearRect(0, 0, W, H);
     // 近景（画在角色之上，制造前景遮挡）
-    if (BG.near) {
-      const sc = H / BG.near.height, w = BG.near.width * sc, h = BG.near.height * sc;
+    if (BG.front) {
+      const { w, h, y } = layerBox(BG.front);
       let x = -(((camX * 1.15) % w) + w) % w;
       fx.globalAlpha = 0.75;
-      while (x < W) { fx.drawImage(BG.near, x, groundY - h, w, h); x += w; }
+      while (x < W) { fx.drawImage(BG.front, x, y, w, h); x += w; }
       fx.globalAlpha = 1;
     }
     // 粒子

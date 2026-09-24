@@ -64,6 +64,9 @@ window.PLAYER = (() => {
       this.onFire = null; this.onEvent = null; this.onShell = null;
       this.gunSize = 130;
       this.stockOff = 8;
+      this.armPick = { R: true, L: true };              // IK 肘部选解的迟滞记忆（防抖动）
+      this.aimX0 = this.bAim ? this.bAim.data.x : 232;  // aim_pivot 位置来自骨架，每帧重申防动画漂移
+      this.aimY0 = this.bAim ? this.bAim.data.y : 150;
     }
 
     // ---------------------------------------------------------- 动画选择
@@ -80,7 +83,6 @@ window.PLAYER = (() => {
       if (this.reloadT > 0) return 'upper_reload';
       if (this.hitT > 0) return 'upper_gethit';
       if (this.landT > 0) return 'upper_land';
-      if (this.flipT > 0) return 'upper_turn';      // 转身那一瞬摆一下肩，掩盖镜像跳变
       if (!this.onGround) return this.vy > 0 ? 'upper_jump' : 'upper_fall';
       if (mv) return mv > 1 ? 'upper_run' : 'upper_walk';
       return 'upper_idle';
@@ -142,7 +144,7 @@ window.PLAYER = (() => {
       const runK = input.run ? 1.75 : 1;
       const spd = 250 * runK * (mv ? 1 : 0);
       if (!P.dead) P.x += mv * spd * dt;
-      if (mv) { const nf = mv > 0 ? 1 : -1; if (nf !== P.face && P.flipT <= 0) { P.flipFrom = P.face; P.face = nf; P.flipT = 0.14; } }
+      // 朝向只跟瞄准走（gunner 同款）：按移动方向翻面会和瞄准翻面打架，来回横跳
 
       if (!P.dead && input.jump && P.onGround) { P.vy = 760; P.onGround = false; }
       if (!P.onGround) {
@@ -174,37 +176,48 @@ window.PLAYER = (() => {
       P.state.update(dt);
       P.state.apply(P.skel);
 
-      // --- 持枪：尺寸 / 抵肩 / 握点
+      // --- 持枪：尺寸 / 抵肩 / 握点（gunner 同款 fitGun）
+      P.bAim.data.x = P.aimX0; P.bAim.data.y = P.aimY0;
       P.fitGun(1);
-      // --- 顺序很关键：scaleX（镜像）与骨架位置必须在任何世界角计算之前定好。
-      // 放到最后赋值的话，IK 解算用的是上一帧的朝向，转身那一帧手臂就会拧成一团。
-      P.skel.scaleX = P.face * P.scale;
-      P.skel.scaleY = P.scale;
-      P.skel.x = P.x; P.skel.y = P.y + P.footY * P.scale;
-      P.skel.updateWorldTransform();
 
-      const pw = Math.atan2(P.bSpine2.c, P.bSpine2.a) * DEG;
-      P.bAim.rotation = P.face > 0 ? (P.aim - pw) : (pw - P.aim);
       // 躯干 / 头随俯仰轻微跟随
       const pitch = Math.asin(Math.sin(P.aim * RAD)) * DEG;
       const ds = P.face > 0 ? 1 : -1;
       P.bSpine2.rotation += Math.max(-12, Math.min(12, pitch * 0.16)) * ds;
       P.bHead.rotation += Math.max(-8, Math.min(8, pitch * 0.12)) * ds;
+
+      // --- 转身（gunner 同款）：scaleX 在 0.14s 内从旧朝向收缩过 0 再展开成新朝向，
+      // 镜像不硬切；且 scaleX 必须先于任何世界角计算写入，IK 才不会拿上一帧的朝向解算。
+      const p = P.flipT > 0 ? P.flipT / 0.14 : 1;
+      const sx = P.flipT > 0 ? (p < 0.5 ? P.flipFrom * (1 - p * 2) : P.face * (p * 2 - 1)) : P.face;
+      P.skel.scaleX = sx * P.scale;
+      P.skel.scaleY = P.scale;
+      P.skel.x = P.x; P.skel.y = P.y + P.footY * P.scale;
       P.skel.updateWorldTransform();
 
-      // 镜像后同一个 bendDir 会让肘部往反方向折，所以跟着朝向翻符号
-      const bend = P.face > 0 ? 1 : -1;
-      P.solveArm('R', bend, P.dead ? 0 : 1);
-      P.solveArm('L', bend, P.dead ? 0 : 1);
+      // 枪的世界角 = 瞄准角；镜像时局部旋转方向相反
+      const pw = Math.atan2(P.bSpine2.c, P.bSpine2.a) * DEG;
+      P.bAim.rotation = P.face > 0 ? (P.aim - pw) : (pw - P.aim);
+      P.skel.updateWorldTransform();
 
-      // 手掌贴合握把的固定角写在上半身动画里，镜像后要取反，否则翻面时掌心朝外
-      if (P.face < 0) {
-        for (const n of ['UpperArm_3_R', 'UpperArm_3_L']) {
-          const b = P.skel.findBone(n);
-          if (b) b.rotation = -b.rotation;
-        }
+      const w = P.armWeights();
+      P.solveArm('R', -1, w.r);   // bendDir -1 = 肘朝下（gunner 默认），两个朝向都成立
+      P.solveArm('L', -1, w.l);
+      P.skel.updateWorldTransform();
+    }
+
+    // IK 权重（gunner 同款，去掉收枪/拔枪）：死亡松手；换弹时左手离枪去摸弹匣、
+    // 右手虚握，权重 <1 时手臂向动画姿势靠拢，换弹动作才看得出来
+    armWeights() {
+      if (this.dead) return { r: 0, l: 0 };
+      if (this.reloadT > 0) {
+        const t = RELOAD_T - this.reloadT;
+        const hand = (a, b, va, vb) => va + (vb - va) * Math.min(1, Math.max(0, (t - a) / (b - a)));
+        const l = t < 0.85 ? hand(0, 0.25, 0.9, 0.05) : hand(1.0, 1.45, 0.05, 0.9);
+        const r = t < 0.3 ? hand(0, 0.3, 1, 0.75) : (t < 1.45 ? 0.75 : hand(1.45, 1.7, 0.75, 1));
+        return { r, l };
       }
-      P.skel.updateWorldTransform();
+      return { r: 1, l: 1 };
     }
 
     // 枪尺寸 + 抵肩 + 握点（与 gunner 同源；改尺寸必须 updateOffset）
@@ -230,7 +243,9 @@ window.PLAYER = (() => {
       setGrip(this.bGripL, GUN_PX.foreX, GUN_PX.foreY, CHAIN - 60);
     }
 
-    // 两骨 IK（余弦定理）。世界角 -> 局部角要按镜像翻符号
+    // 两骨 IK（余弦定理）。肘部有两个解（肩的两侧），用「肘部世界 y 更低」来选——
+    // 固定符号在朝右时恰好朝下，转向左就变成朝上（手臂甩到头顶），gunner 里踩过的坑。
+    // 近对称（两个解几乎一样高）时保持上一帧选解，避免肘部来回跳。
     solveArm(side, bendDir, weight) {
       if (weight <= 0.001) return;
       const b1 = this.skel.findBone('UpperArm_1_' + side);
@@ -244,7 +259,13 @@ window.PLAYER = (() => {
       const d = Math.min(Math.max(raw, Math.abs(L1 - L2) + 0.01), L1 + L2 - 0.01);
       const base = Math.atan2(dy, dx) * DEG;
       const cosA = Math.min(1, Math.max(-1, (d * d + L1 * L1 - L2 * L2) / (2 * d * L1)));
-      const armDir = base + bendDir * Math.acos(cosA) * DEG;
+      const A = Math.acos(cosA) * DEG;
+      const dy1 = Math.sin((base + A) * RAD) * L1, dy2 = Math.sin((base - A) * RAD) * L1;
+      let pick;                                         // true => base + A
+      if (Math.abs(dy1 - dy2) < L1 * 0.04) pick = this.armPick[side];
+      else pick = bendDir < 0 ? (dy1 < dy2) : (dy1 > dy2);
+      this.armPick[side] = pick;
+      const armDir = pick ? base + A : base - A;
       const ex = b1.worldX + Math.cos(armDir * RAD) * L1;
       const ey = b1.worldY + Math.sin(armDir * RAD) * L1;
       const foreDir = Math.atan2(g.worldY - ey, g.worldX - ex) * DEG;
