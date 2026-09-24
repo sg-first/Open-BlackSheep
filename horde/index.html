@@ -85,6 +85,8 @@
     <label>底图 <span class="dim2">（房间整版 / 长卷，铺满画面）</span></label><select id="bgBase"></select>
     <label>叠加上层 <span class="dim2">（可选，需带透明通道）</span></label><select id="bgOver"></select>
     <label>前景 <span class="dim2">（画在角色之上，做遮挡）</span></label><select id="bgFront"></select>
+    <label>角色大小 / 镜头 <span id="zoomv">680</span> <span class="dim2">（可视世界高度，越小人越大；背景不跟着放大）</span></label>
+    <div class="row"><input type="range" id="optZoom" min="360" max="1400" value="680"></div>
     <label><input type="checkbox" id="optGround" checked> 显示地面与地平线</label>
     <label>同屏敌人上限 <span id="capv">18</span></label>
     <div class="row"><input type="range" id="optCap" min="4" max="40" value="18"></div>

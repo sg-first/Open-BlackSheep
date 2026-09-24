@@ -20,6 +20,20 @@
   const bgx = bgc.getContext('2d');
   const fx = fxc.getContext('2d');
   let dpr = 1, W = 0, H = 0, groundY = 0, camX = 0, camY = 0;
+  // 两个尺度是分开的，别混：
+  // · viewSc（世界 -> 屏幕）：只缩放世界里的东西——角色、敌人、粒子、子弹。
+  //   可视世界高度 VIEW_H 越小镜头越近，角色占屏就是 190 / VIEW_H（与窗口大小无关）。
+  // · bgSc（背景 -> 屏幕）：背景画在**屏幕空间**，1 图像像素 = 1 设计像素，固定不随相机变。
+  //   否则拉近镜头时背景跟着一起放大，人物相对背景的比例还是老样子（而且会被拉糊）。
+  let viewSc = 1, bgSc = 1, VIEW_H = 680;
+  const GROUND_F = 0.76;          // 地平线在屏幕高的比例；美术也把地板线画在 0.76×1080 处
+
+  function updateView() {
+    VIEW_H = +$('optZoom').value || 680;
+    viewSc = H / VIEW_H;                                  // 世界 -> 屏幕
+    bgSc = H / DESIGN_H;                                  // 背景 -> 屏幕（与相机无关）
+    camera.zoom = 1 / (viewSc * dpr);   // 世界单位 -> 屏幕：1 单位 = viewSc CSS 像素
+  }
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -28,15 +42,15 @@
       const w = Math.max(1, Math.floor(W * dpr)), h = Math.max(1, Math.floor(H * dpr));
       if (c.width !== w || c.height !== h) { c.width = w; c.height = h; }
     }
-    groundY = Math.round(H * 0.76);
+    groundY = Math.round(H * GROUND_F);
     camera.setViewport(glc.width, glc.height);
     gl.viewport(0, 0, glc.width, glc.height);
-    camera.zoom = 1 / dpr;
+    updateView();
   }
   addEventListener('resize', resize);
 
   const v3 = (x, y) => new sp.webgl.Vector3(x, y, 0);
-  const w2s = (x, y) => ({ x: x - camX + W / 2, y: H / 2 + camY - y });
+  const w2s = (x, y) => ({ x: (x - camX) * viewSc + W / 2, y: H / 2 + (camY - y) * viewSc });
   const s2w = (px, py) => camera.screenToWorld(v3(px * dpr, py * dpr), glc.width, glc.height);
 
   // ---------------------------------------------------------------- 状态
@@ -126,20 +140,21 @@
     else BG.front = img;
   }
 
-  // 统一换算：只按设计分辨率缩放，绝不按图片自身高度拉满
+  // 背景换算：1 图像像素 = 1 设计像素，只跟屏幕高走。
+  // 绝不按图片自身高度拉满——那样长卷被放大、竖版被压扁，比例全错。
   function layerBox(img) {
-    const sc = H / DESIGN_H;
+    const sc = bgSc;
     const w = img.width * sc, h = img.height * sc;
-    // 接近满屏的整版房间：顶边贴屏幕顶（图内 y≈0.76*1080 的地板线正好落在 groundY=0.76H）
-    // 细长条带（远景/墙/天空）：底边坐在地平线上
-    const y = img.height >= DESIGN_H * 0.75 ? 0 : groundY - h;
+    // 图内的地平线在哪：整版/长卷的地板线画在 0.76×1080 处；条带（远景/墙/天空）底边就是地平线。
+    const hz = img.height >= DESIGN_H * 0.75 ? DESIGN_H * GROUND_F : img.height;
+    const y = groundY - hz * sc;                  // 让它落在屏幕 groundY（与相机远近无关）
     return { w, h, y };
   }
 
   function drawLayer(img, parallax, alpha, tint) {
     if (!img) return;
     const { w, h, y } = layerBox(img);
-    let x = -(((camX * parallax) % w) + w) % w;
+    let x = -(((camX * parallax * bgSc) % w) + w) % w;     // 视差按设计像素平移，不跟相机缩放走
     bgx.globalAlpha = alpha;
     while (x < W) { bgx.drawImage(img, x, y, w, h); x += w; }
     bgx.globalAlpha = 1;
@@ -168,7 +183,7 @@
       bgx.beginPath(); bgx.moveTo(0, yy); bgx.lineTo(W, yy); bgx.stroke();
     }
     bgx.strokeStyle = 'rgba(0,0,0,.25)';
-    const step = 96, off = -((camX % step) + step) % step;
+    const step = 96, off = -(((camX * bgSc) % step) + step) % step;
     for (let x = off; x < W; x += step) {
       bgx.beginPath(); bgx.moveTo(x, groundY); bgx.lineTo(x - 40, H); bgx.stroke();
     }
@@ -236,7 +251,7 @@
     const A = G.assets[type.id];
     if (!A) return false;
     const side = Math.random() < 0.5 ? -1 : 1;
-    const x = camX + side * (W / 2 + rnd(60, 220));
+    const x = camX + side * (W / 2 / viewSc + rnd(60, 220));   // 屏幕外一点点刷怪
     const e = new ENEMY.Enemy(type, A.data, {
       x, dir: -side, footY: A.footY, box: A.box,
       hpScale: (1 + (n - 1) * 0.09) * (G.bossScale || 1),
@@ -413,11 +428,12 @@
   function step(dt) {
     const P = G.player;
     // 选项
+    updateView(); $('zoomv').textContent = VIEW_H;
     G.cap = +$('optCap').value; $('capv').textContent = G.cap;
     G.speedScale = +$('optSpd').value / 100; $('spdv').textContent = G.speedScale.toFixed(1);
     G.damage = +$('optDmg').value; $('dmgv').textContent = G.damage;
     G.bones = $('optBones').checked;
-    G.viewW = W;
+    G.viewW = W / viewSc;                     // 敌人 AI 用的是世界宽度，不是屏幕宽度
 
     P.update(dt, {
       left: !!(keys['a'] || keys['arrowleft']),
@@ -437,13 +453,13 @@
     updateParts(dt);
     if (G.comboT > 0) { G.comboT -= dt; if (G.comboT <= 0) G.combo = 0; }
     if (G.shake > 0) G.shake = Math.max(0, G.shake - 22 * dt);
-    if (!P.dead) P.x = clamp(P.x, camX - W * 0.62, camX + W * 0.62);
+    if (!P.dead) P.x = clamp(P.x, camX - W * 0.62 / viewSc, camX + W * 0.62 / viewSc);
 
-    // 相机
+    // 相机：世界 y=0（地面）落在屏幕 groundY
     camX += (P.x - camX) * Math.min(1, 5 * dt);
-    camY = groundY - H / 2;
+    camY = (groundY - H / 2) / viewSc;
     camera.position.x = camX;
-    camera.position.y = camY + ($('optShake').checked ? rnd(-G.shake, G.shake) : 0);
+    camera.position.y = camY + ($('optShake').checked ? rnd(-G.shake, G.shake) / viewSc : 0);
     camera.update();
 
     hud();
@@ -491,7 +507,7 @@
     // 近景（画在角色之上，制造前景遮挡）
     if (BG.front) {
       const { w, h, y } = layerBox(BG.front);
-      let x = -(((camX * 1.15) % w) + w) % w;
+      let x = -(((camX * 1.15 * bgSc) % w) + w) % w;
       fx.globalAlpha = 0.75;
       while (x < W) { fx.drawImage(BG.front, x, y, w, h); x += w; }
       fx.globalAlpha = 1;
