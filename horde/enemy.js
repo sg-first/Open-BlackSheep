@@ -33,7 +33,9 @@ window.ENEMY = (() => {
       json: '../characters/BOSSmeimei/BOSSmeimei__var1.json',
       atlas: '../characters/BOSSmeimei/BOSSmeimei.atlas.txt',
       tex: '../characters/BOSSmeimei/textures',
-      hp: 1500, speed: 176, dmg: 18, reach: 92, mass: 3.2, targetH: 300 },
+      // BOSSmeimei 的贴图是朝左画的，其余角色朝右。不加翻转的话 scaleX=+1
+      // 时它保持朝左，跑动方向（face）和动画朝向就反了——像在倒着跑。
+      hp: 1500, speed: 176, dmg: 18, reach: 92, mass: 3.2, targetH: 300, flip: -1 },
   ];
 
   // 动画名兜底：不同角色命名不统一，这里按优先级挑第一条存在的
@@ -76,7 +78,8 @@ window.ENEMY = (() => {
 
       this.x = opt.x; this.y = 0;
       this.vx = 0; this.vy = 0;
-      this.face = opt.dir || -1;
+      this.face = opt.dir || -1;             // 逻辑朝向：决定往哪边跑
+      this.flip = type.flip || 1;            // 贴图默认朝向的修正，见 TYPES.boss
       this.hp = type.hp * (opt.hpScale || 1);
       this.maxHp = this.hp;
       this.root = this.skel.getRootBone() || this.skel.bones[0];
@@ -89,7 +92,7 @@ window.ENEMY = (() => {
       this.stunT = 0;
       this.deathAnim = this.anims.death;
       this.boss = !!type.boss;
-      this.skel.scaleX = this.face * this.scale;
+      this.skel.scaleX = this.face * this.flip * this.scale;
       this.skel.scaleY = this.scale;
     }
 
@@ -139,7 +142,8 @@ window.ENEMY = (() => {
         this.vx *= Math.pow(0.02, dt);
         if (this.y < 0) { this.y = 0; this.vy *= -0.28; if (Math.abs(this.vy) < 40) this.vy = 0; }
         const fall = Math.min(1, this.t / 0.55);
-        if (!this.deathAnim && this.root) this.root.rotation = -dir(this.x) * 88 * fall;
+        // 朝背后倒
+        if (!this.deathAnim && this.root) this.root.rotation = -this.face * this.flip * 88 * fall;
         this.alpha = Math.max(0, 1 - Math.max(0, this.removeT - 1.4) / 0.9);
         this.state.update(dt); this.state.apply(this.skel);
         return;
@@ -219,10 +223,12 @@ window.ENEMY = (() => {
 
       // 程序化：受击后仰、前摇蓄力（这些动画素材里没有）
       if (this.root) {
+        // 程序化旋转也要乘 flip：scaleX=-1 会把旋转的视觉方向一起镜像掉
+        const F = this.face * this.flip;
         let r = 0, ty = 0;
-        if (this.hitT > 0) r = -this.face * 9 * (this.hitT / 0.16);
-        else if (this.st === 'wind') r = -this.face * 13 * (this.t / 0.34);
-        else if (this.st === 'attack') r = this.face * 16 * Math.sin(Math.PI * Math.min(1, this.t / 0.3));
+        if (this.hitT > 0) r = -F * 9 * (this.hitT / 0.16);
+        else if (this.st === 'wind') r = -F * 13 * (this.t / 0.34);
+        else if (this.st === 'attack') r = F * 16 * Math.sin(Math.PI * Math.min(1, this.t / 0.3));
         this.root.rotation = r;
         this.root.y = ty;
       }
@@ -230,7 +236,7 @@ window.ENEMY = (() => {
 
     // 应用到骨架并提交绘制
     draw(G) {
-      this.skel.scaleX = this.face * this.scale;
+      this.skel.scaleX = this.face * this.flip * this.scale;
       this.skel.scaleY = this.scale;
       this.skel.x = this.x;
       this.skel.y = this.y + this.footY * this.scale;
@@ -238,8 +244,6 @@ window.ENEMY = (() => {
       return this.alpha;
     }
   }
-
-  function dir(x) { return x >= 0 ? 1 : -1; }
 
   return { TYPES, Enemy, WANT, pickAnims };
 })();
