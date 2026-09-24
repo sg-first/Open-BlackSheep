@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>横板射击 · 割草（Black Sheep 素材）</title>
+<style>
+  :root { --ink:#e8edf5; --dim:#8a95a8; --acc:#ffb340; --bad:#ff5d5d; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; overflow:hidden; background:#0a0d12;
+    font:13px/1.5 "Segoe UI", "Microsoft YaHei", sans-serif; color:var(--ink); }
+  canvas { position:absolute; inset:0; width:100%; height:100%; display:block; }
+  #bg { z-index:1 } #gl { z-index:2 } #fx { z-index:3; pointer-events:none }
+
+  .hud { position:absolute; z-index:5; pointer-events:none; }
+  #top { top:14px; left:0; right:0; display:flex; justify-content:center; gap:22px; align-items:center; }
+  #top .chip { background:rgba(12,16,22,.62); border:1px solid rgba(255,255,255,.09);
+    border-radius:999px; padding:5px 14px; backdrop-filter:blur(6px); letter-spacing:.4px; }
+  #top b { color:var(--acc); font-size:15px; }
+
+  #left { left:16px; bottom:16px; width:250px; }
+  .bar { height:12px; border-radius:6px; background:rgba(255,255,255,.1); overflow:hidden; margin:3px 0 9px; }
+  .bar > i { display:block; height:100%; width:100%; transition:width .12s linear; }
+  #hp > i { background:linear-gradient(90deg,#ff5d5d,#ff9a6a); }
+  #ammo { font-size:26px; font-weight:700; letter-spacing:1px; }
+  #ammo small { font-size:13px; color:var(--dim); font-weight:400; }
+  .label { color:var(--dim); font-size:11px; letter-spacing:1px; }
+
+  #right { right:16px; top:52px; width:150px; text-align:right; }
+  #combo { font-size:30px; font-weight:800; color:var(--acc); line-height:1; text-shadow:0 2px 12px rgba(255,179,64,.45); }
+  #right.hide #combo { opacity:0 }
+
+  #panel { position:absolute; z-index:6; top:14px; right:14px; width:262px;
+    background:rgba(12,16,22,.88); border:1px solid rgba(255,255,255,.1); border-radius:12px;
+    padding:12px 13px; backdrop-filter:blur(8px); }
+  #panel h3 { margin:0 0 8px; font-size:12px; letter-spacing:1px; color:var(--dim); font-weight:600; }
+  #panel label { display:block; margin:6px 0 2px; font-size:12px; color:var(--dim); }
+  #panel select, #panel input[type=range] { width:100%; }
+  #panel select { background:#171d26; color:var(--ink); border:1px solid rgba(255,255,255,.12);
+    border-radius:6px; padding:4px 6px; font-size:12px; }
+  .row { display:flex; gap:8px; align-items:center; font-size:12px; color:var(--dim); }
+  .row input[type=range] { flex:1 }
+  #panel .tip { margin-top:9px; font-size:11px; color:#6b7688; line-height:1.5; }
+  #panel.fold .body { display:none }
+  #fold { position:absolute; top:8px; right:10px; cursor:pointer; color:var(--dim); font-size:12px; }
+
+  #load { position:absolute; inset:0; z-index:20; display:flex; align-items:center; justify-content:center;
+    flex-direction:column; gap:10px; background:#0a0d12; }
+  #load .t { color:var(--dim); font-size:13px; letter-spacing:2px; }
+  #load .p { width:260px; height:4px; background:rgba(255,255,255,.1); border-radius:2px; overflow:hidden; }
+  #load .p > i { display:block; height:100%; width:0%; background:var(--acc); transition:width .2s; }
+  .err { color:var(--bad); max-width:620px; text-align:center; line-height:1.7; }
+  .hidden { display:none !important; }
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<canvas id="gl"></canvas>
+<canvas id="fx"></canvas>
+
+<div class="hud" id="top">
+  <div class="chip">第 <b id="wave">1</b> 波</div>
+  <div class="chip">剩余 <b id="alive">0</b></div>
+  <div class="chip">击杀 <b id="kills">0</b></div>
+</div>
+
+<div class="hud" id="left">
+  <div class="label">生命</div>
+  <div class="bar" id="hp"><i style="width:100%"></i></div>
+  <div id="ammo">30<small> / 弹匣</small></div>
+  <div class="label" id="wname">步枪</div>
+</div>
+
+<div class="hud" id="right" class="hide">
+  <div id="combo">x0</div>
+  <div class="label">连杀</div>
+</div>
+
+<div id="panel">
+  <div id="fold">[ – ]</div>
+  <h3>设置</h3>
+  <div class="body">
+    <label>远层背景</label><select id="bgFar"></select>
+    <label>中层背景</label><select id="bgMid"></select>
+    <label>近层背景（前景）</label><select id="bgNear"></select>
+    <label><input type="checkbox" id="optGround" checked> 显示地面与地平线</label>
+    <label>同屏敌人上限 <span id="capv">18</span></label>
+    <div class="row"><input type="range" id="optCap" min="4" max="40" value="18"></div>
+    <label>敌人速度 <span id="spdv">1.0</span></label>
+    <div class="row"><input type="range" id="optSpd" min="30" max="220" value="100"></div>
+    <label>玩家伤害 <span id="dmgv">34</span></label>
+    <div class="row"><input type="range" id="optDmg" min="10" max="200" value="34"></div>
+    <label><input type="checkbox" id="optBones"> 显示骨骼与判定框</label>
+    <label><input type="checkbox" id="optShake" checked> 屏幕震动</label>
+    <div class="tip">
+      A/D 移动 · Shift 疾跑 · 空格跳<br>
+      鼠标瞄准 · 左键射击 · R 换弹 · F 近战<br>
+      P 暂停 · 回车开始下一波
+    </div>
+  </div>
+</div>
+
+<div id="load"><div class="t" id="loadT">正在加载素材…</div><div class="p"><i id="loadP"></i></div></div>
+
+<script src="../spine_viewer/vendor/spine-webgl.js"></script>
+<script>
+  // 开发期无缓存加载：async=false 保证按数组顺序执行（game.js 依赖前三个）
+  for (const f of ['common.js', 'enemy.js', 'player.js', 'game.js']) {
+    const s = document.createElement('script');
+    s.src = f + '?t=' + Date.now(); s.async = false;
+    document.body.appendChild(s);
+  }
+</script>
+</body>
+</html>
