@@ -50,8 +50,9 @@
   // ---------------------------------------------------------------- 图集：追加程序化枪页
   function gunCanvas() {
     const c = document.createElement('canvas');
-    c.width = 320; c.height = 128;
+    c.width = 1024; c.height = 384;
     const g = c.getContext('2d');
+    g.scale(3.2, 3.2);                     // 枪画满整页：像素量与「枪大小」滑块解耦，放大也不糊
     const metal = g.createLinearGradient(0, 12, 0, 74);
     metal.addColorStop(0, '#6f7885'); metal.addColorStop(.45, '#454c57'); metal.addColorStop(1, '#2b3038');
     const dark = '#1b1f26';
@@ -81,8 +82,8 @@
 
   function appendGunPage(atlasText) {
     return atlasText.replace(/\s*$/, '\n\n') + [
-      'gun.png', 'size: 320,128', 'format: RGBA8888', 'filter: Linear,Linear', 'repeat: none',
-      'gun', 'rotate: false', 'xy: 0, 0', 'size: 300,112', 'orig: 300,112', 'offset: 0,0', 'index: -1', ''
+      'gun.png', 'size: 1024,384', 'format: RGBA8888', 'filter: Linear,Linear', 'repeat: none',
+      'gun', 'rotate: false', 'xy: 0, 0', 'size: 1024,384', 'orig: 1024,384', 'offset: 0,0', 'index: -1', ''
     ].join('\n');
   }
 
@@ -146,6 +147,8 @@
 
   // ---------------------------------------------------------------- 骨架
   let skeleton, state, boneAim, boneGun, boneSpine2, boneHead, boneMuzzle, ikR, ikL;
+  let gunAt = null, gunAtW = 0, gunAtH = 0, muzzleX0 = 0;
+  let boneGripR = null, boneGripL = null;
 
   async function boot() {
     resize();
@@ -197,8 +200,14 @@
     boneSpine2 = skeleton.findBone('Spine2');
     boneHead = skeleton.findBone('Head');
     boneMuzzle = skeleton.findBone('muzzle');
+    boneGripR = skeleton.findBone('grip_R');
+    boneGripL = skeleton.findBone('grip_L');
+    muzzleX0 = boneMuzzle.data.x;
     ikR = skeleton.findIkConstraint('ik_arm_R');
     ikL = skeleton.findIkConstraint('ik_arm_L');
+    // 枪的世界尺寸写在附件上（与图集像素无关），滑块直接改它就能实时换枪大小
+    gunAt = skeleton.getAttachmentByName('gun', 'gun');
+    if (gunAt) { gunAtW = gunAt.width; gunAtH = gunAt.height; }
     // 数据里保留了 IK 约束（导出给编辑器 / 其它 runtime 用），运行时改由下面的
     // solveArm() 解析求解 —— 完全可控，也便于按状态调权重。
     if (ikR) ikR.mix = 0;
@@ -225,7 +234,7 @@
     P.footY = isFinite(lo) ? -lo : 0;
     skeleton.setToSetupPose();
 
-    P.x = W * 0.5; P.y = 0; P.grip = boneGun.data.x;
+    P.x = W * 0.5; P.y = 0;
     camX = P.x;                          // 首帧就对上角色，避免开局"镜头拉过去"
 
     // URL 参数：?bones=1&scale=160&grip=380&high=60&aim=-70&upper=upper_reload
@@ -236,6 +245,7 @@
     if (q.get('scale')) { $('cScale').value = q.get('scale'); P.scale = +q.get('scale') / 1000; }
     if (q.get('grip')) { $('cGrip').value = q.get('grip'); P.grip = +q.get('grip'); }
     if (q.get('high')) $('cHigh').value = q.get('high');
+    if (q.get('gun')) $('cGun').value = q.get('gun');
     if (q.get('damp')) $('cDamp').value = q.get('damp');
     if (q.get('panup')) P.panUp = +q.get('panup');
     if (q.get('demo')) P.auto = true;      // 演示模式：自动走 / 跑 / 跳 / 射击 / 换弹
@@ -367,6 +377,41 @@
   const DEG = 180 / Math.PI, RAD = Math.PI / 180;
   function worldRot(b) { return Math.atan2(b.c, b.a) * DEG; }
 
+  // 枪原图（region 300x112，附件中心 = 图 (150,56)）上各关键点的像素位置。
+  // 所有挂点都由这些像素换算，枪缩放时自动跟随，不必再手填 CFG 偏移。
+  const GUN_PX = { tailX: 10, gripX: 85, gripY: 86, foreX: 134, foreY: 84, muzX: 298, muzY: 48 };
+  const CHAIN = 529;                       // 上臂 + 前臂（本骨架），握点必须落在它之内
+
+  // 枪尺寸 / 抵肩 / 握点 / 枪口 一体换算
+  function fitGun(gripK) {
+    const el = $('cGun');
+    const k = el ? +el.value / 100 : 1.3;
+    if (gunAt) {
+      gunAt.width = gunAtW * k; gunAt.height = gunAtH * k;
+      gunAt.updateOffset();                // 3.8 改了尺寸必须重算顶点，否则画面纹丝不动
+    }
+    const w = gunAtW * k, s = w / 300;     // 世界单位 / 原图像素
+    const cx = gunAt.x, cy = gunAt.y;
+    const lx = px => cx + (px - 150) * s;
+    const ly = py => cy - (py - 56) * s;
+
+    // 抵肩：枪托底对准肩点（再叠加滑块微调，正值=枪往前挪一点）
+    const tail = lx(GUN_PX.tailX);
+    boneGun.data.x = (-tail + P.grip) * gripK;
+
+    boneMuzzle.data.x = lx(GUN_PX.muzX); boneMuzzle.data.y = ly(GUN_PX.muzY);
+
+    // 握点按真实图形位置；枪放大到手臂够不着时，把该手沿枪身往回收
+    const setGrip = (bone, pxX, pxY, maxReach) => {
+      bone.data.y = ly(pxY);
+      let x = lx(pxX);
+      if (boneGun.data.x + x > maxReach) x = maxReach - boneGun.data.x;
+      bone.data.x = x;
+    };
+    setGrip(boneGripR, GUN_PX.gripX, GUN_PX.gripY, CHAIN - 100);
+    setGrip(boneGripL, GUN_PX.foreX, GUN_PX.foreY, CHAIN - 60);
+  }
+
   // 双手持枪权重：空手 / 受击 / 换弹时按状态松开（比纯动画 timeline 更好调）
   function armWeights() {
     if (P.dead || P.lockUpper === 'upper_die') return { r: 0, l: 0 };
@@ -385,7 +430,7 @@
       const r = t < 0.3 ? hand(0, 0.3, 1, 0.75) : (t < 1.45 ? 0.75 : hand(1.45, 1.7, 0.75, 1));
       return { r, l };
     }
-    return { r: 1, l: 0.9 };
+    return { r: 1, l: 1 };               // 双手都完全贴合握把（<1 会留下肉眼可见的偏差）
   }
 
   // 两骨 IK（余弦定理）。世界角 -> 局部角时要按镜像翻符号，否则转身后手臂会反向。
@@ -509,8 +554,8 @@
     if (P.holsterT > 0) gripK = 1 - 0.58 * (1 - P.holsterT / 0.55);
     else if ((P.holstered || P.lockUpper === 'upper_holster') && P.drawT <= 0) gripK = 0.42;
     else if (P.drawT > 0) gripK = 0.42 + 0.58 * (1 - P.drawT / 0.55);
-    boneGun.data.x = P.grip * gripK;
     boneAim.data.x = 232; boneAim.data.y = +$('cHigh').value;
+    fitGun(gripK);                          // 枪尺寸 + 抵肩 + 握点/枪口（见下）
 
     // 躯干 / 头随俯仰角轻微跟随：往上抬枪时身体后仰，避免"手举着、身子不动"的僵感
     const pitch = Math.asin(Math.sin(P.aim * RAD)) * DEG;      // 相对水平面的俯仰
