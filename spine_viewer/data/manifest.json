@@ -1,0 +1,3334 @@
+{
+ "generated": "2026-09-24 05:41:32",
+ "root": "E:\\BaiduNetdiskDownload\\9dm Black Sheep\\unpack",
+ "n_characters": 19,
+ "n_variants": 43,
+ "characters": [
+  {
+   "name": "gujia",
+   "dir": "../characters/gujia",
+   "variants": [
+    {
+     "label": "gujia__var1",
+     "json": "../characters/gujia/gujia__var1.json",
+     "atlas": "../characters/gujia/gujia.atlas.txt",
+     "atlas_regions": 228,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "gujia.png",
+       "file": "../characters/gujia/textures/gujia.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/gujia/gujia.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/chenxin/chenxin__var1.atlas.txt",
+       "coverage": 0.079
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 412,
+     "slots": 247,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "Part1-5",
+      "part10-12",
+      "part5-10"
+     ],
+     "n_anims": 3,
+     "ik": 18,
+     "width": 9931.53,
+     "height": 1984.99,
+     "x": -6608.51,
+     "y": -38.96,
+     "json_bytes": 3486777,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 1,
+   "max_bones": 412,
+   "max_anims": 3,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "BOSS-tree",
+   "dir": "../characters/BOSS-tree",
+   "variants": [
+    {
+     "label": "BOSS-tree__var2",
+     "json": "../characters/BOSS-tree/BOSS-tree__var2.json",
+     "atlas": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+     "atlas_regions": 132,
+     "coverage": 0.957,
+     "pages": [
+      {
+       "page": "BOSS-tree.png",
+       "file": "../characters/BOSS-tree/textures/BOSS-tree.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 0.956
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 0.956
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.439
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.439
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.439
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.439
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 0.439
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.175
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 276,
+     "slots": 100,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "000",
+      "Znanzhu-blood_death",
+      "Znanzhu-idle",
+      "Znanzhu-jingxia",
+      "Znanzhu-walk",
+      "attack_QTE_normal",
+      "idle_ convulsed",
+      "idle_ convulsed2",
+      "idle_normal",
+      "idle_normal2",
+      "talk_normal",
+      "talk_normal2",
+      "talk_specal",
+      "talk_specal2"
+     ],
+     "n_anims": 14,
+     "ik": 39,
+     "width": 4030,
+     "height": 1078.52,
+     "x": -2439.15,
+     "y": -102.04,
+     "json_bytes": 2691739,
+     "tex_bytes": 0
+    },
+    {
+     "label": "BOSS-tree__var1",
+     "json": "../characters/BOSS-tree/BOSS-tree__var1.json",
+     "atlas": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+     "atlas_regions": 132,
+     "coverage": 0.958,
+     "pages": [
+      {
+       "page": "BOSS-tree.png",
+       "file": "../characters/BOSS-tree/textures/BOSS-tree.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 0.957
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 0.79
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.362
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.362
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.362
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.362
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 0.362
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.145
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 374,
+     "slots": 124,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "attack_QTE_N",
+      "attack_QTE_N2",
+      "attack_QTE_Q",
+      "attack_QTE_Y",
+      "attack_QTE_normal",
+      "attack_QTE_specal",
+      "idle_ convulsed",
+      "idle_QTE_normal",
+      "idle_normal",
+      "talk_normal",
+      "talk_specal"
+     ],
+     "n_anims": 11,
+     "ik": 39,
+     "width": 4030,
+     "height": 1078.52,
+     "x": -2439.15,
+     "y": -102.04,
+     "json_bytes": 5082015,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 2,
+   "max_bones": 374,
+   "max_anims": 14,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "B-boss",
+   "dir": "../characters/B-boss",
+   "variants": [
+    {
+     "label": "B-boss__var1",
+     "json": "../characters/B-boss/B-boss__var1.json",
+     "atlas": "../characters/B-boss/B-boss.atlas.txt",
+     "atlas_regions": 69,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "B-boss.png",
+       "file": "../characters/B-boss/textures/B-boss.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/B-boss/B-boss.atlas.txt",
+       "coverage": 1.0
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 205,
+     "slots": 69,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "Show_convulsed",
+      "idle_normal",
+      "rum weiyi",
+      "run"
+     ],
+     "n_anims": 4,
+     "ik": 0,
+     "width": 4448.97,
+     "height": 1489.84,
+     "x": 555,
+     "y": 15.35,
+     "json_bytes": 1822738,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 1,
+   "max_bones": 205,
+   "max_anims": 4,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "nanzhu",
+   "dir": "../characters/nanzhu",
+   "variants": [
+    {
+     "label": "nanzhu__var10",
+     "json": "../characters/nanzhu/nanzhu__var10.json",
+     "atlas": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+     "atlas_regions": 57,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "nanzhu.png",
+       "file": "../characters/nanzhu/textures/nanzhu.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.912
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.877
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.877
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 0.877
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 0.877
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 0.877
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.351
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 51,
+     "slots": 43,
+     "skins": [
+      "default",
+      "123"
+     ],
+     "events": [
+      "attack",
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "Blood_BrokenOff",
+      "Blood_BrokenOn",
+      "Blood_Brokening",
+      "Close",
+      "IPhone_Close_Open",
+      "IPhone_Idle_Open",
+      "IPhone_Open_Open",
+      "Iphone_Close",
+      "Iphone_Idle",
+      "Iphone_Open",
+      "Talk",
+      "Talk_Open",
+      "Think",
+      "Think_Open",
+      "blood_death",
+      "blood_fall",
+      "blood_fall2",
+      "blood_fallloop",
+      "blood_idle",
+      "blood_walk",
+      "collect",
+      "collect-open",
+      "collect2",
+      "collect2-open",
+      "connection",
+      "death",
+      "death_Close",
+      "death_collect",
+      "death_collect2",
+      "death_collect2_open",
+      "death_collect_open",
+      "death_idle",
+      "death_idle2",
+      "death_idle3",
+      "death_open",
+      "death_walk",
+      "death_walk_open",
+      "gethit",
+      "gethit2",
+      "hide",
+      "hide_idle",
+      "hide_up",
+      "idle",
+      "idle2",
+      "idle_open",
+      "open",
+      "run",
+      "run_1",
+      "run_close",
+      "run_open",
+      "terrified",
+      "walk",
+      "walk_Thriller",
+      "walk_Thriller_open",
+      "walk_open"
+     ],
+     "n_anims": 55,
+     "ik": 0,
+     "width": 568.31,
+     "height": 1969.93,
+     "x": -313.63,
+     "y": -51.78,
+     "json_bytes": 1660843,
+     "tex_bytes": 0
+    },
+    {
+     "label": "nanzhu__var11",
+     "json": "../characters/nanzhu/nanzhu__var11.json",
+     "atlas": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+     "atlas_regions": 57,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "nanzhu.png",
+       "file": "../characters/nanzhu/textures/nanzhu.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.912
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.877
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.877
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 0.877
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 0.877
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 0.877
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.351
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 51,
+     "slots": 43,
+     "skins": [
+      "default",
+      "123"
+     ],
+     "events": [
+      "attack",
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "Blood_BrokenOff",
+      "Blood_BrokenOn",
+      "Blood_Brokening",
+      "Close",
+      "IPhone_Close_Open",
+      "IPhone_Idle_Open",
+      "IPhone_Open_Open",
+      "Iphone_Close",
+      "Iphone_Idle",
+      "Iphone_Open",
+      "Talk",
+      "Talk_Open",
+      "Think",
+      "Think_Open",
+      "blood_death",
+      "blood_fall",
+      "blood_fall2",
+      "blood_fallloop",
+      "blood_idle",
+      "blood_walk",
+      "collect",
+      "collect-open",
+      "collect2",
+      "collect2-open",
+      "connection",
+      "death",
+      "death_Close",
+      "death_collect",
+      "death_collect2",
+      "death_collect2_open",
+      "death_collect_open",
+      "death_idle",
+      "death_idle2",
+      "death_idle3",
+      "death_open",
+      "death_walk",
+      "death_walk_open",
+      "gethit",
+      "gethit2",
+      "hide",
+      "hide_idle",
+      "hide_up",
+      "idle",
+      "idle2",
+      "idle_open",
+      "open",
+      "run",
+      "run_1",
+      "run_close",
+      "run_open",
+      "terrified",
+      "walk",
+      "walk_Thriller",
+      "walk_Thriller_open",
+      "walk_open"
+     ],
+     "n_anims": 55,
+     "ik": 0,
+     "width": 568.31,
+     "height": 1969.93,
+     "x": -313.63,
+     "y": -51.78,
+     "json_bytes": 1648647,
+     "tex_bytes": 0
+    },
+    {
+     "label": "nanzhu__var9",
+     "json": "../characters/nanzhu/nanzhu__var9.json",
+     "atlas": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+     "atlas_regions": 52,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "nanzhu.png",
+       "file": "../characters/nanzhu/textures/nanzhu.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.962
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.962
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 0.962
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 0.962
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 0.962
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.385
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 47,
+     "slots": 38,
+     "skins": [
+      "default",
+      "123"
+     ],
+     "events": [
+      "attack",
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "Blood_BrokenOff",
+      "Blood_BrokenOn",
+      "Blood_Brokening",
+      "Close",
+      "IPhone_Close_Open",
+      "IPhone_Idle_Open",
+      "IPhone_Open_Open",
+      "Iphone_Close",
+      "Iphone_Idle",
+      "Iphone_Open",
+      "Talk",
+      "Talk_Open",
+      "Think",
+      "Think_Open",
+      "blood_death",
+      "blood_fall",
+      "blood_fall2",
+      "blood_fallloop",
+      "blood_idle",
+      "blood_walk",
+      "collect",
+      "collect-open",
+      "collect2",
+      "collect2-open",
+      "connection",
+      "death",
+      "death_Close",
+      "death_collect",
+      "death_collect2",
+      "death_collect2_open",
+      "death_collect_open",
+      "death_idle",
+      "death_idle2",
+      "death_idle3",
+      "death_open",
+      "death_walk",
+      "death_walk_open",
+      "gethit",
+      "gethit2",
+      "hide",
+      "hide_idle",
+      "hide_up",
+      "idle",
+      "idle2",
+      "idle_open",
+      "open",
+      "run",
+      "run_1",
+      "run_close",
+      "run_open",
+      "terrified",
+      "walk",
+      "walk_Thriller",
+      "walk_Thriller_open",
+      "walk_open"
+     ],
+     "n_anims": 55,
+     "ik": 0,
+     "width": 568.31,
+     "height": 1899.25,
+     "x": -313.63,
+     "y": -51.78,
+     "json_bytes": 1659003,
+     "tex_bytes": 0
+    },
+    {
+     "label": "nanzhu__var3",
+     "json": "../characters/nanzhu/nanzhu__var3.json",
+     "atlas": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+     "atlas_regions": 50,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "nanzhu.png",
+       "file": "../characters/nanzhu/textures/nanzhu.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.4
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 47,
+     "slots": 38,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "attack",
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "Blood_BrokenOff",
+      "Blood_BrokenOn",
+      "Blood_Brokening",
+      "Close",
+      "blood_death",
+      "blood_fall",
+      "blood_fall2",
+      "blood_fallloop",
+      "blood_idle",
+      "blood_walk",
+      "collect",
+      "collect-open",
+      "collect2",
+      "collect2-open",
+      "connection",
+      "death",
+      "death_Close",
+      "death_collect",
+      "death_collect2",
+      "death_collect2_open",
+      "death_collect_open",
+      "death_idle",
+      "death_idle2",
+      "death_idle3",
+      "death_open",
+      "death_walk",
+      "death_walk_open",
+      "gethit",
+      "gethit2",
+      "hide",
+      "hide_idle",
+      "hide_up",
+      "idle",
+      "idle2",
+      "idle_open",
+      "open",
+      "run",
+      "run_1",
+      "run_close",
+      "run_open",
+      "terrified",
+      "walk",
+      "walk_Thriller",
+      "walk_Thriller_open",
+      "walk_open"
+     ],
+     "n_anims": 45,
+     "ik": 0,
+     "width": 568.31,
+     "height": 1899.25,
+     "x": -313.63,
+     "y": -51.78,
+     "json_bytes": 1540854,
+     "tex_bytes": 0
+    },
+    {
+     "label": "nanzhu",
+     "json": "../characters/nanzhu/nanzhu.json",
+     "atlas": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+     "atlas_regions": 50,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "nanzhu.png",
+       "file": "../characters/nanzhu/textures/nanzhu.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.4
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 46,
+     "slots": 38,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "attack",
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "Close",
+      "blood_death",
+      "blood_fall",
+      "blood_fall2",
+      "blood_fallloop",
+      "blood_idle",
+      "blood_walk",
+      "collect",
+      "collect-open",
+      "collect2",
+      "collect2-open",
+      "connection",
+      "death",
+      "death_Close",
+      "death_collect",
+      "death_collect2",
+      "death_collect2_open",
+      "death_collect_open",
+      "death_idle",
+      "death_idle2",
+      "death_idle3",
+      "death_open",
+      "death_walk",
+      "death_walk_open",
+      "gethit",
+      "gethit2",
+      "hide",
+      "hide_idle",
+      "hide_up",
+      "idle",
+      "idle2",
+      "idle_open",
+      "open",
+      "run",
+      "run_1",
+      "run_close",
+      "run_open",
+      "terrified",
+      "walk",
+      "walk_Thriller",
+      "walk_Thriller_open",
+      "walk_open"
+     ],
+     "n_anims": 42,
+     "ik": 0,
+     "width": 568.31,
+     "height": 1899.25,
+     "x": -313.63,
+     "y": -51.78,
+     "json_bytes": 1419120,
+     "tex_bytes": 0
+    },
+    {
+     "label": "nanzhu__var12",
+     "json": "../characters/nanzhu/nanzhu__var12.json",
+     "atlas": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+     "atlas_regions": 89,
+     "coverage": 0.99,
+     "pages": [
+      {
+       "page": "nanzhu.png",
+       "file": "../characters/nanzhu/textures/nanzhu.png"
+      },
+      {
+       "page": "nanzhu2.png",
+       "file": "../characters/nanzhu/textures/nanzhu2.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.989
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.222
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 131,
+     "slots": 89,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "attack_QTE",
+      "attack_QTE1",
+      "attack_QTE_N",
+      "attack_QTE_Y",
+      "attack_loop",
+      "attack_norma",
+      "idle"
+     ],
+     "n_anims": 7,
+     "ik": 0,
+     "width": 2991.77,
+     "height": 2023.36,
+     "x": -1145.77,
+     "y": -16,
+     "json_bytes": 1294393,
+     "tex_bytes": 0
+    },
+    {
+     "label": "nanzhu__var2",
+     "json": "../characters/nanzhu/nanzhu__var2.json",
+     "atlas": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+     "atlas_regions": 89,
+     "coverage": 0.99,
+     "pages": [
+      {
+       "page": "nanzhu.png",
+       "file": "../characters/nanzhu/textures/nanzhu.png"
+      },
+      {
+       "page": "nanzhu2.png",
+       "file": "../characters/nanzhu/textures/nanzhu2.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.989
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 0.556
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.222
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 131,
+     "slots": 89,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "attack_QTE",
+      "attack_QTE_N",
+      "attack_QTE_Y",
+      "attack_loop",
+      "attack_norma",
+      "idle"
+     ],
+     "n_anims": 6,
+     "ik": 0,
+     "width": 2991.77,
+     "height": 2023.36,
+     "x": -1145.77,
+     "y": -16,
+     "json_bytes": 1177562,
+     "tex_bytes": 0
+    },
+    {
+     "label": "nanzhu__var7",
+     "json": "../characters/nanzhu/nanzhu__var7.json",
+     "atlas": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+     "atlas_regions": 50,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "nanzhu.png",
+       "file": "../characters/nanzhu/textures/nanzhu.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.4
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 47,
+     "slots": 38,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "attack_QTE",
+      "attack_QTE_N",
+      "attack_QTE_Y",
+      "attack_loop",
+      "attack_norma",
+      "idle"
+     ],
+     "n_anims": 6,
+     "ik": 0,
+     "width": 568.31,
+     "height": 1863.47,
+     "x": -1145.77,
+     "y": -16,
+     "json_bytes": 442626,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 8,
+   "max_bones": 131,
+   "max_anims": 55,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "BOSSmeimei",
+   "dir": "../characters/BOSSmeimei",
+   "variants": [
+    {
+     "label": "BOSSmeimei__var1",
+     "json": "../characters/BOSSmeimei/BOSSmeimei__var1.json",
+     "atlas": "../characters/BOSSmeimei/BOSSmeimei.atlas.txt",
+     "atlas_regions": 66,
+     "coverage": 0.972,
+     "pages": [
+      {
+       "page": "BOSSmeimei.png",
+       "file": "../characters/BOSSmeimei/textures/BOSSmeimei.png"
+      },
+      {
+       "page": "BOSSmeimei2.png",
+       "file": "../characters/BOSSmeimei/textures/BOSSmeimei2.png"
+      },
+      {
+       "page": "BOSSmeimei3.png",
+       "file": "../characters/BOSSmeimei/textures/BOSSmeimei3.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/BOSSmeimei/BOSSmeimei.atlas.txt",
+       "coverage": 0.971
+      },
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 0.059
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 0.029
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 0.029
+      },
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 0.029
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 0.029
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie__var3.atlas.txt",
+       "coverage": 0.029
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie.atlas.txt",
+       "coverage": 0.029
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 118,
+     "slots": 76,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "stop",
+      "walk"
+     ],
+     "anims": [
+      "attack_QTE",
+      "attack_QTE_N",
+      "attack_QTE_Y",
+      "attack_loop",
+      "attack_norma",
+      "idle",
+      "run",
+      "run_catch",
+      "show",
+      "walk"
+     ],
+     "n_anims": 10,
+     "ik": 8,
+     "width": 1622,
+     "height": 3092,
+     "x": -1137.01,
+     "y": -38.14,
+     "json_bytes": 829453,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 1,
+   "max_bones": 118,
+   "max_anims": 10,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "fengrun",
+   "dir": "../characters/fengrun",
+   "variants": [
+    {
+     "label": "fengrun__var2",
+     "json": "../characters/fengrun/fengrun__var2.json",
+     "atlas": "../characters/fengrun/fengrun__var3.atlas.txt",
+     "atlas_regions": 67,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "fengrun.png",
+       "file": "../characters/fengrun/textures/fengrun.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 0.97
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.179
+      },
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 0.104
+      },
+      {
+       "file": "../characters/chenfei/chenfei__var1.atlas.txt",
+       "coverage": 0.104
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 0.075
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 0.045
+      },
+      {
+       "file": "../characters/chenxin/chenxin__var1.atlas.txt",
+       "coverage": 0.03
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 105,
+     "slots": 67,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "walk"
+     ],
+     "anims": [
+      "idle",
+      "idletalk",
+      "run",
+      "sit",
+      "walk"
+     ],
+     "n_anims": 5,
+     "ik": 6,
+     "width": 420.53,
+     "height": 1857.11,
+     "x": -175.67,
+     "y": 68.04,
+     "json_bytes": 580243,
+     "tex_bytes": 0
+    },
+    {
+     "label": "fengrun__var1",
+     "json": "../characters/fengrun/fengrun__var1.json",
+     "atlas": "../characters/fengrun/fengrun.atlas.txt",
+     "atlas_regions": 65,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "fengrun.png",
+       "file": "../characters/fengrun/textures/fengrun.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.185
+      },
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 0.108
+      },
+      {
+       "file": "../characters/chenfei/chenfei__var1.atlas.txt",
+       "coverage": 0.108
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 0.046
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 0.046
+      },
+      {
+       "file": "../characters/BOSSmeimei/BOSSmeimei.atlas.txt",
+       "coverage": 0.031
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 105,
+     "slots": 65,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "walk"
+     ],
+     "anims": [
+      "idle",
+      "idletalk",
+      "sit",
+      "walk"
+     ],
+     "n_anims": 4,
+     "ik": 6,
+     "width": 420.53,
+     "height": 1857.11,
+     "x": -175.67,
+     "y": 68.04,
+     "json_bytes": 481411,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 2,
+   "max_bones": 105,
+   "max_anims": 5,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "duke",
+   "dir": "../characters/duke",
+   "variants": [
+    {
+     "label": "duke__var1",
+     "json": "../characters/duke/duke__var1.json",
+     "atlas": "../characters/duke/duke.atlas.txt",
+     "atlas_regions": 41,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "duke.png",
+       "file": "../characters/duke/textures/duke.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 0.488
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 79,
+     "slots": 39,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "idle",
+      "idle_special",
+      "run",
+      "talk",
+      "walk"
+     ],
+     "n_anims": 5,
+     "ik": 2,
+     "width": 480.01,
+     "height": 2294.23,
+     "x": -171.23,
+     "y": -30.14,
+     "json_bytes": 566531,
+     "tex_bytes": 0
+    },
+    {
+     "label": "duke__var2",
+     "json": "../characters/duke/duke__var2.json",
+     "atlas": "../characters/duke/duke.atlas.txt",
+     "atlas_regions": 41,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "duke.png",
+       "file": "../characters/duke/textures/duke.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var1.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree__var3.atlas.txt",
+       "coverage": 0.488
+      },
+      {
+       "file": "../characters/BOSS-tree/BOSS-tree.atlas.txt",
+       "coverage": 0.488
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 79,
+     "slots": 39,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "idle",
+      "idle_special",
+      "run",
+      "talk",
+      "walk"
+     ],
+     "n_anims": 5,
+     "ik": 2,
+     "width": 480.01,
+     "height": 2294.23,
+     "x": -171.23,
+     "y": -30.14,
+     "json_bytes": 566531,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 2,
+   "max_bones": 79,
+   "max_anims": 5,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "shuangmawei",
+   "dir": "../characters/shuangmawei",
+   "variants": [
+    {
+     "label": "shuangmawei",
+     "json": "../characters/shuangmawei/shuangmawei.json",
+     "atlas": "../characters/shuangmawei/shuangmawei__var1.atlas.txt",
+     "atlas_regions": 25,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "shuangmawei.png",
+       "file": "../characters/shuangmawei/textures/shuangmawei.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/shuangmawei/shuangmawei__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/shuangmawei/shuangmawei__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var9.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var4.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var1.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/xiameng/xiameng.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.44
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 67,
+     "slots": 25,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "idle",
+      "skill01",
+      "skill02",
+      "skill03",
+      "tentacle",
+      "tentacle_idle",
+      "tentacle_show",
+      "tentacle_walk",
+      "walk",
+      "zhuiji"
+     ],
+     "n_anims": 10,
+     "ik": 0,
+     "width": 303.69,
+     "height": 798.11,
+     "x": -141.98,
+     "y": -7.92,
+     "json_bytes": 788237,
+     "tex_bytes": 0
+    },
+    {
+     "label": "shuangmawei__var2",
+     "json": "../characters/shuangmawei/shuangmawei__var2.json",
+     "atlas": "../characters/shuangmawei/shuangmawei__var1.atlas.txt",
+     "atlas_regions": 25,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "shuangmawei.png",
+       "file": "../characters/shuangmawei/textures/shuangmawei.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/shuangmawei/shuangmawei__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/shuangmawei/shuangmawei__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var9.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var4.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var1.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/xiameng/xiameng.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.44
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 67,
+     "slots": 25,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "idle",
+      "skill01",
+      "skill02",
+      "skill03",
+      "tentacle",
+      "tentacle_idle",
+      "tentacle_show",
+      "tentacle_walk",
+      "walk",
+      "zhuiji"
+     ],
+     "n_anims": 10,
+     "ik": 0,
+     "width": 303.69,
+     "height": 798.11,
+     "x": -161.7,
+     "y": -7.92,
+     "json_bytes": 1447778,
+     "tex_bytes": 0
+    },
+    {
+     "label": "shuangmawei__var3",
+     "json": "../characters/shuangmawei/shuangmawei__var3.json",
+     "atlas": "../characters/shuangmawei/shuangmawei__var1.atlas.txt",
+     "atlas_regions": 25,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "shuangmawei.png",
+       "file": "../characters/shuangmawei/textures/shuangmawei.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/shuangmawei/shuangmawei__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/shuangmawei/shuangmawei__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var9.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var4.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var1.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/xiameng/xiameng.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.52
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.44
+      }
+     ],
+     "spine": "3.6.46",
+     "bones": 67,
+     "slots": 25,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "idle",
+      "skill01",
+      "skill02",
+      "skill03",
+      "tentacle",
+      "tentacle_idle",
+      "tentacle_show",
+      "tentacle_walk",
+      "walk",
+      "zhuiji"
+     ],
+     "n_anims": 10,
+     "ik": 0,
+     "width": 303.69,
+     "height": 798.11,
+     "x": null,
+     "y": null,
+     "json_bytes": 1778126,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 3,
+   "max_bones": 67,
+   "max_anims": 10,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "zhouwan",
+   "dir": "../characters/zhouwan",
+   "variants": [
+    {
+     "label": "zhouwan",
+     "json": "../characters/zhouwan/zhouwan.json",
+     "atlas": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+     "atlas_regions": 41,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "zhouwan.png",
+       "file": "../characters/zhouwan/textures/zhouwan.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 0.951
+      },
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 0.122
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 0.073
+      },
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 0.073
+      },
+      {
+       "file": "../characters/chenfei/chenfei__var1.atlas.txt",
+       "coverage": 0.073
+      },
+      {
+       "file": "../characters/chenxin/chenxin__var1.atlas.txt",
+       "coverage": 0.049
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie__var3.atlas.txt",
+       "coverage": 0.049
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 58,
+     "slots": 39,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "collect1",
+      "collect2",
+      "idle",
+      "idle2",
+      "run",
+      "talk",
+      "walk",
+      "walk_Thriller"
+     ],
+     "n_anims": 8,
+     "ik": 2,
+     "width": 408.97,
+     "height": 1821.3,
+     "x": -182.82,
+     "y": 103.74,
+     "json_bytes": 386267,
+     "tex_bytes": 0
+    },
+    {
+     "label": "zhouwan__var2",
+     "json": "../characters/zhouwan/zhouwan__var2.json",
+     "atlas": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+     "atlas_regions": 41,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "zhouwan.png",
+       "file": "../characters/zhouwan/textures/zhouwan.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 0.951
+      },
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 0.122
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 0.073
+      },
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 0.073
+      },
+      {
+       "file": "../characters/chenfei/chenfei__var1.atlas.txt",
+       "coverage": 0.073
+      },
+      {
+       "file": "../characters/chenxin/chenxin__var1.atlas.txt",
+       "coverage": 0.049
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie__var3.atlas.txt",
+       "coverage": 0.049
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 58,
+     "slots": 39,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "walk"
+     ],
+     "anims": [
+      "collect1",
+      "collect2",
+      "idle",
+      "idle2",
+      "run",
+      "talk",
+      "walk",
+      "walk_Thriller"
+     ],
+     "n_anims": 8,
+     "ik": 2,
+     "width": 408.97,
+     "height": 1821.3,
+     "x": -182.82,
+     "y": 103.74,
+     "json_bytes": 386259,
+     "tex_bytes": 0
+    },
+    {
+     "label": "zhouwan__var4",
+     "json": "../characters/zhouwan/zhouwan__var4.json",
+     "atlas": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+     "atlas_regions": 41,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "zhouwan.png",
+       "file": "../characters/zhouwan/textures/zhouwan.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 0.077
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 0.077
+      },
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 0.077
+      },
+      {
+       "file": "../characters/chenfei/chenfei__var1.atlas.txt",
+       "coverage": 0.077
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie__var3.atlas.txt",
+       "coverage": 0.051
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie.atlas.txt",
+       "coverage": 0.051
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 58,
+     "slots": 37,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "walk"
+     ],
+     "anims": [
+      "collect1",
+      "collect2",
+      "idle",
+      "idle2",
+      "talk",
+      "walk",
+      "walk_Thriller"
+     ],
+     "n_anims": 7,
+     "ik": 2,
+     "width": 408.97,
+     "height": 1821.3,
+     "x": -182.82,
+     "y": 103.74,
+     "json_bytes": 325753,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 3,
+   "max_bones": 58,
+   "max_anims": 8,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "boss jiejie",
+   "dir": "../characters/boss jiejie",
+   "variants": [
+    {
+     "label": "boss jiejie__var2",
+     "json": "../characters/boss jiejie/boss jiejie__var2.json",
+     "atlas": "../characters/boss jiejie/boss jiejie.atlas.txt",
+     "atlas_regions": 25,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "boss jiejie.png",
+       "file": "../characters/boss jiejie/textures/boss jiejie.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/boss jiejie/boss jiejie__var3.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 0.08
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 0.08
+      },
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 0.08
+      },
+      {
+       "file": "../characters/BOSSmeimei/BOSSmeimei.atlas.txt",
+       "coverage": 0.08
+      },
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 0.04
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 0.04
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 48,
+     "slots": 25,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "atk",
+      "atk_end",
+      "atk_loop",
+      "atk_start",
+      "idle_convulsed",
+      "idle_normal"
+     ],
+     "n_anims": 6,
+     "ik": 4,
+     "width": 1265.46,
+     "height": 2265,
+     "x": -557.01,
+     "y": -7,
+     "json_bytes": 317733,
+     "tex_bytes": 0
+    },
+    {
+     "label": "boss jiejie__var1",
+     "json": "../characters/boss jiejie/boss jiejie__var1.json",
+     "atlas": "../characters/boss jiejie/boss jiejie.atlas.txt",
+     "atlas_regions": 25,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "boss jiejie.png",
+       "file": "../characters/boss jiejie/textures/boss jiejie.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/boss jiejie/boss jiejie__var3.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 0.08
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 0.08
+      },
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 0.08
+      },
+      {
+       "file": "../characters/BOSSmeimei/BOSSmeimei.atlas.txt",
+       "coverage": 0.08
+      },
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 0.04
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 0.04
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 48,
+     "slots": 25,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "Event_Atk"
+     ],
+     "anims": [
+      "atk",
+      "idle_convulsed",
+      "idle_normal"
+     ],
+     "n_anims": 3,
+     "ik": 4,
+     "width": 1265.46,
+     "height": 2265,
+     "x": -557.01,
+     "y": -7,
+     "json_bytes": 269454,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 2,
+   "max_bones": 48,
+   "max_anims": 6,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "npc",
+   "dir": "../characters/npc",
+   "variants": [
+    {
+     "label": "npc__var1",
+     "json": "../characters/npc/npc__var1.json",
+     "atlas": "../characters/npc/npc.atlas.txt",
+     "atlas_regions": 20,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "npc.png",
+       "file": "../characters/npc/textures/npc.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/npc/npc.atlas.txt",
+       "coverage": 1.0
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 48,
+     "slots": 20,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "nan1_idle",
+      "nan1_walk",
+      "nan2_idle",
+      "nan2_walk",
+      "nv1_idle",
+      "nv1_walk",
+      "nv2_idle",
+      "nv2_walk"
+     ],
+     "n_anims": 8,
+     "ik": 4,
+     "width": 1301.88,
+     "height": 1914,
+     "x": 92.55,
+     "y": 106.02,
+     "json_bytes": 300076,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 1,
+   "max_bones": 48,
+   "max_anims": 8,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "xiameng",
+   "dir": "../characters/xiameng",
+   "variants": [
+    {
+     "label": "xiameng__var3",
+     "json": "../characters/xiameng/xiameng__var3.json",
+     "atlas": "../characters/xiameng/xiameng.atlas.txt",
+     "atlas_regions": 31,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "xiameng.png",
+       "file": "../characters/xiameng/textures/xiameng.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/xiameng/xiameng__var9.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.484
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 43,
+     "slots": 31,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "Sit",
+      "Think_Idle",
+      "Think_Idle_puzzle",
+      "Think_Start",
+      "Think_Start_puzzle",
+      "WAlk_Puzzle_Balk",
+      "Walk_Back",
+      "idle",
+      "idle_Back",
+      "idle_puzzzle",
+      "run",
+      "run4",
+      "run7",
+      "run_puzzzle",
+      "talk",
+      "talk_puzzzle",
+      "walk",
+      "walk_Puzzzle"
+     ],
+     "n_anims": 18,
+     "ik": 2,
+     "width": 417.7,
+     "height": 1835.22,
+     "x": -215.01,
+     "y": -11.94,
+     "json_bytes": 528565,
+     "tex_bytes": 0
+    },
+    {
+     "label": "xiameng__var5",
+     "json": "../characters/xiameng/xiameng__var5.json",
+     "atlas": "../characters/xiameng/xiameng.atlas.txt",
+     "atlas_regions": 31,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "xiameng.png",
+       "file": "../characters/xiameng/textures/xiameng.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/xiameng/xiameng__var9.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.484
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 43,
+     "slots": 31,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "Sit",
+      "Think_Idle",
+      "Think_Idle_puzzle",
+      "Think_Start",
+      "Think_Start_puzzle",
+      "WAlk_Puzzle_Balk",
+      "Walk_Back",
+      "idle",
+      "idle_Back",
+      "idle_puzzzle",
+      "run",
+      "run4",
+      "run7",
+      "run_puzzzle",
+      "talk",
+      "talk_puzzzle",
+      "walk",
+      "walk_Puzzzle"
+     ],
+     "n_anims": 18,
+     "ik": 2,
+     "width": 417.7,
+     "height": 1835.22,
+     "x": -215.01,
+     "y": -11.94,
+     "json_bytes": 528565,
+     "tex_bytes": 0
+    },
+    {
+     "label": "xiameng__var2",
+     "json": "../characters/xiameng/xiameng__var2.json",
+     "atlas": "../characters/xiameng/xiameng.atlas.txt",
+     "atlas_regions": 31,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "xiameng.png",
+       "file": "../characters/xiameng/textures/xiameng.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/xiameng/xiameng__var9.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.484
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 43,
+     "slots": 31,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "Sit",
+      "Think_Idle",
+      "Think_Idle_puzzle",
+      "Think_Start",
+      "Think_Start_puzzle",
+      "WAlk_Puzzle_Balk",
+      "Walk_Back",
+      "idle",
+      "idle_puzzzle",
+      "run",
+      "run4",
+      "run7",
+      "run_puzzzle",
+      "talk",
+      "talk_puzzzle",
+      "walk",
+      "walk_Puzzzle"
+     ],
+     "n_anims": 17,
+     "ik": 2,
+     "width": 417.7,
+     "height": 1835.22,
+     "x": -215.01,
+     "y": -11.94,
+     "json_bytes": 519451,
+     "tex_bytes": 0
+    },
+    {
+     "label": "xiameng__var7",
+     "json": "../characters/xiameng/xiameng__var7.json",
+     "atlas": "../characters/xiameng/xiameng.atlas.txt",
+     "atlas_regions": 31,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "xiameng.png",
+       "file": "../characters/xiameng/textures/xiameng.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/xiameng/xiameng__var9.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.484
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 43,
+     "slots": 31,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "Walk_Back",
+      "idle",
+      "idle_puzzzle",
+      "jump2_puzzzle",
+      "jump3_puzzzle",
+      "jump_puzzzle",
+      "run",
+      "run4",
+      "run7",
+      "run_puzzzle",
+      "talk",
+      "talk_puzzzle",
+      "walk",
+      "walk_Puzzzle"
+     ],
+     "n_anims": 14,
+     "ik": 2,
+     "width": 417.7,
+     "height": 1835.22,
+     "x": -215.01,
+     "y": -11.94,
+     "json_bytes": 467168,
+     "tex_bytes": 0
+    },
+    {
+     "label": "xiameng__var6",
+     "json": "../characters/xiameng/xiameng__var6.json",
+     "atlas": "../characters/xiameng/xiameng.atlas.txt",
+     "atlas_regions": 31,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "xiameng.png",
+       "file": "../characters/xiameng/textures/xiameng.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/xiameng/xiameng__var9.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.484
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 43,
+     "slots": 31,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "Walk_Back",
+      "idle",
+      "idle_puzzzle",
+      "run",
+      "run4",
+      "run7",
+      "run_puzzzle",
+      "talk",
+      "talk_puzzzle",
+      "walk",
+      "walk_Puzzzle"
+     ],
+     "n_anims": 11,
+     "ik": 2,
+     "width": 417.7,
+     "height": 1835.22,
+     "x": -215.01,
+     "y": -11.94,
+     "json_bytes": 421876,
+     "tex_bytes": 0
+    },
+    {
+     "label": "xiameng__var8",
+     "json": "../characters/xiameng/xiameng__var8.json",
+     "atlas": "../characters/xiameng/xiameng.atlas.txt",
+     "atlas_regions": 31,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "xiameng.png",
+       "file": "../characters/xiameng/textures/xiameng.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/xiameng/xiameng__var9.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var4.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/xiameng/xiameng.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var8.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var6.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var5.atlas.txt",
+       "coverage": 0.484
+      },
+      {
+       "file": "../characters/nanzhu/nanzhu__var4.atlas.txt",
+       "coverage": 0.484
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 43,
+     "slots": 31,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "idle",
+      "idle_puzzzle",
+      "run",
+      "run4",
+      "run7",
+      "run_puzzzle",
+      "talk",
+      "talk_puzzzle",
+      "walk_Puzzzle"
+     ],
+     "n_anims": 9,
+     "ik": 2,
+     "width": 417.7,
+     "height": 1835.22,
+     "x": -215.01,
+     "y": -11.94,
+     "json_bytes": 383355,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 6,
+   "max_bones": 43,
+   "max_anims": 18,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "chenfei",
+   "dir": "../characters/chenfei",
+   "variants": [
+    {
+     "label": "chenfei",
+     "json": "../characters/chenfei/chenfei.json",
+     "atlas": "../characters/chenfei/chenfei__var1.atlas.txt",
+     "atlas_regions": 32,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "chenfei.png",
+       "file": "../characters/chenfei/textures/chenfei.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/chenfei/chenfei__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 0.219
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 0.219
+      },
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 0.219
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 0.094
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 0.094
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.031
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie__var3.atlas.txt",
+       "coverage": 0.031
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 40,
+     "slots": 31,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "idle",
+      "idle2",
+      "run",
+      "run2",
+      "walk"
+     ],
+     "n_anims": 5,
+     "ik": 2,
+     "width": 755,
+     "height": 2023.2,
+     "x": 307,
+     "y": 122,
+     "json_bytes": 389719,
+     "tex_bytes": 0
+    },
+    {
+     "label": "chenfei__var2",
+     "json": "../characters/chenfei/chenfei__var2.json",
+     "atlas": "../characters/chenfei/chenfei__var1.atlas.txt",
+     "atlas_regions": 32,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "chenfei.png",
+       "file": "../characters/chenfei/textures/chenfei.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/chenfei/chenfei__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 0.219
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 0.219
+      },
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 0.219
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 0.094
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 0.094
+      },
+      {
+       "file": "../characters/duke/duke.atlas.txt",
+       "coverage": 0.031
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie__var3.atlas.txt",
+       "coverage": 0.031
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 40,
+     "slots": 31,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "run",
+      "walk"
+     ],
+     "anims": [
+      "idle",
+      "idle2",
+      "run",
+      "run2",
+      "walk"
+     ],
+     "n_anims": 5,
+     "ik": 2,
+     "width": 755,
+     "height": 2023.2,
+     "x": 307,
+     "y": 122,
+     "json_bytes": 390161,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 2,
+   "max_bones": 40,
+   "max_anims": 5,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "fengqing",
+   "dir": "../characters/fengqing",
+   "variants": [
+    {
+     "label": "fengqing__var1",
+     "json": "../characters/fengqing/fengqing__var1.json",
+     "atlas": "../characters/fengqing/fengqing.atlas.txt",
+     "atlas_regions": 25,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "fengqing.png",
+       "file": "../characters/fengqing/textures/fengqing.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 0.28
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 0.28
+      },
+      {
+       "file": "../characters/chenfei/chenfei__var1.atlas.txt",
+       "coverage": 0.28
+      },
+      {
+       "file": "../characters/BOSSmeimei/BOSSmeimei.atlas.txt",
+       "coverage": 0.16
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 0.12
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 0.12
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie__var3.atlas.txt",
+       "coverage": 0.08
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 30,
+     "slots": 25,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "walk"
+     ],
+     "anims": [
+      "idle",
+      "walk"
+     ],
+     "n_anims": 2,
+     "ik": 2,
+     "width": 447.26,
+     "height": 1872.55,
+     "x": 428.05,
+     "y": 198.45,
+     "json_bytes": 155638,
+     "tex_bytes": 0
+    },
+    {
+     "label": "fengqing__var2",
+     "json": "../characters/fengqing/fengqing__var2.json",
+     "atlas": "../characters/fengqing/fengqing.atlas.txt",
+     "atlas_regions": 25,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "fengqing.png",
+       "file": "../characters/fengqing/textures/fengqing.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/fengqing/fengqing.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 0.28
+      },
+      {
+       "file": "../characters/fengrun/fengrun.atlas.txt",
+       "coverage": 0.28
+      },
+      {
+       "file": "../characters/chenfei/chenfei__var1.atlas.txt",
+       "coverage": 0.28
+      },
+      {
+       "file": "../characters/BOSSmeimei/BOSSmeimei.atlas.txt",
+       "coverage": 0.16
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var3.atlas.txt",
+       "coverage": 0.12
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 0.12
+      },
+      {
+       "file": "../characters/boss jiejie/boss jiejie__var3.atlas.txt",
+       "coverage": 0.08
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 30,
+     "slots": 25,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "idle",
+      "walk"
+     ],
+     "n_anims": 2,
+     "ik": 2,
+     "width": 447.26,
+     "height": 1872.55,
+     "x": 428.05,
+     "y": 198.45,
+     "json_bytes": 155470,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 2,
+   "max_bones": 30,
+   "max_anims": 2,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "chenxin",
+   "dir": "../characters/chenxin",
+   "variants": [
+    {
+     "label": "chenxin",
+     "json": "../characters/chenxin/chenxin.json",
+     "atlas": "../characters/chenxin/chenxin__var1.atlas.txt",
+     "atlas_regions": 21,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "chenxin.png",
+       "file": "../characters/chenxin/textures/chenxin.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/chenxin/chenxin__var1.atlas.txt",
+       "coverage": 1.0
+      },
+      {
+       "file": "../characters/gujia/gujia.atlas.txt",
+       "coverage": 0.857
+      },
+      {
+       "file": "../characters/zhouwan/zhouwan__var1.atlas.txt",
+       "coverage": 0.095
+      },
+      {
+       "file": "../characters/fengrun/fengrun__var3.atlas.txt",
+       "coverage": 0.095
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 29,
+     "slots": 21,
+     "skins": [
+      "default"
+     ],
+     "events": [
+      "walk"
+     ],
+     "anims": [
+      "idle",
+      "run",
+      "walk"
+     ],
+     "n_anims": 3,
+     "ik": 2,
+     "width": 406.02,
+     "height": 1869,
+     "x": -183.46,
+     "y": 28.44,
+     "json_bytes": 207006,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 1,
+   "max_bones": 29,
+   "max_anims": 3,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "vine-pro",
+   "dir": "../characters/vine-pro",
+   "variants": [
+    {
+     "label": "vine-pro__var1",
+     "json": "../characters/vine-pro/vine-pro__var1.json",
+     "atlas": "../characters/vine-pro/vine-pro.atlas.txt",
+     "atlas_regions": 1,
+     "coverage": 0.501,
+     "pages": [
+      {
+       "page": "vine-pro.png",
+       "file": "../characters/vine-pro/textures/vine-pro.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/vine-pro/vine-pro.atlas.txt",
+       "coverage": 0.5
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 18,
+     "slots": 2,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "view"
+     ],
+     "n_anims": 1,
+     "ik": 0,
+     "width": 168.37,
+     "height": 681.16,
+     "x": -87.43,
+     "y": -6.64,
+     "json_bytes": 32417,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 1,
+   "max_bones": 18,
+   "max_anims": 1,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "chat_y",
+   "dir": "../characters/chat_y",
+   "variants": [
+    {
+     "label": "chat_y__var1",
+     "json": "../characters/chat_y/chat_y__var1.json",
+     "atlas": "../characters/chat_y/chat_y.atlas.txt",
+     "atlas_regions": 4,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "chat_y.png",
+       "file": "../characters/chat_y/textures/chat_y.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/chat_y/chat_y.atlas.txt",
+       "coverage": 1.0
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 15,
+     "slots": 4,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "idle",
+      "talk"
+     ],
+     "n_anims": 2,
+     "ik": 1,
+     "width": 220.5,
+     "height": 504.52,
+     "x": -129.29,
+     "y": 0.66,
+     "json_bytes": 30504,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 1,
+   "max_bones": 15,
+   "max_anims": 2,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "skeleton",
+   "dir": "../characters/skeleton",
+   "variants": [
+    {
+     "label": "skeleton__var3",
+     "json": "../characters/skeleton/skeleton__var3.json",
+     "atlas": "../characters/skeleton/skeleton__var2.atlas.txt",
+     "atlas_regions": 1,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "skeleton.png",
+       "file": "../characters/skeleton/textures/skeleton.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/skeleton/skeleton__var2.atlas.txt",
+       "coverage": 1.0
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 5,
+     "slots": 1,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "Jumpscare",
+      "idle"
+     ],
+     "n_anims": 2,
+     "ik": 0,
+     "width": 278,
+     "height": 250.8,
+     "x": -118.5,
+     "y": -2.47,
+     "json_bytes": 38730,
+     "tex_bytes": 0
+    },
+    {
+     "label": "skeleton__var1",
+     "json": "../characters/skeleton/skeleton__var1.json",
+     "atlas": "../characters/skeleton/skeleton.atlas.txt",
+     "atlas_regions": 2,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "skeleton.png",
+       "file": "../characters/skeleton/textures/skeleton.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/skeleton/skeleton.atlas.txt",
+       "coverage": 1.0
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 3,
+     "slots": 2,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "animation"
+     ],
+     "n_anims": 1,
+     "ik": 0,
+     "width": 891.48,
+     "height": 613,
+     "x": -290.24,
+     "y": 6.82,
+     "json_bytes": 30119,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 2,
+   "max_bones": 5,
+   "max_anims": 2,
+   "tex_mb": 0.0
+  },
+  {
+   "name": "男厕小便池 内部淤泥中的钥匙-提交版本",
+   "dir": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本",
+   "variants": [
+    {
+     "label": "男厕小便池 内部淤泥中的钥匙-提交版本__var1",
+     "json": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本__var1.json",
+     "atlas": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本.atlas.txt",
+     "atlas_regions": 1,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "男厕小便池 内部淤泥中的钥匙-提交版本.png",
+       "file": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/textures/男厕小便池 内部淤泥中的钥匙-提交版本.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本.atlas.txt",
+       "coverage": 1.0
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 3,
+     "slots": 1,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "idle",
+      "specal"
+     ],
+     "n_anims": 2,
+     "ik": 0,
+     "width": 1059.2,
+     "height": 1017.08,
+     "x": -503.88,
+     "y": 2.3,
+     "json_bytes": 9766,
+     "tex_bytes": 0
+    },
+    {
+     "label": "男厕小便池 内部淤泥中的钥匙-提交版本__var2",
+     "json": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本__var2.json",
+     "atlas": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本.atlas.txt",
+     "atlas_regions": 1,
+     "coverage": 1.001,
+     "pages": [
+      {
+       "page": "男厕小便池 内部淤泥中的钥匙-提交版本.png",
+       "file": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/textures/男厕小便池 内部淤泥中的钥匙-提交版本.png"
+      }
+     ],
+     "missing_pages": [],
+     "atlas_candidates": [
+      {
+       "file": "../characters/男厕小便池 内部淤泥中的钥匙-提交版本/男厕小便池 内部淤泥中的钥匙-提交版本.atlas.txt",
+       "coverage": 1.0
+      }
+     ],
+     "spine": "3.8.95",
+     "bones": 3,
+     "slots": 1,
+     "skins": [
+      "default"
+     ],
+     "events": [],
+     "anims": [
+      "idle",
+      "specal"
+     ],
+     "n_anims": 2,
+     "ik": 0,
+     "width": 1059.2,
+     "height": 1017.08,
+     "x": -503.88,
+     "y": 2.3,
+     "json_bytes": 7874,
+     "tex_bytes": 0
+    }
+   ],
+   "n_variants": 2,
+   "max_bones": 3,
+   "max_anims": 2,
+   "tex_mb": 0.0
+  }
+ ]
+}

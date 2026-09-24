@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Sheep · Spine 骨架查看器</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <b>Spine 骨架查看器</b>
+    <span class="sub">Black Sheep · unpack/characters</span>
+  </div>
+  <div class="topctl">
+    <label>运行时
+      <select id="runtimeSel">
+        <option value="spine-webgl.js">spine-webgl 3.8（默认，时间轴最全）</option>
+        <option value="spine-webgl-4.2.67.js">spine-webgl 4.2（回退）</option>
+        <option value="spine-webgl-4.1.24.js">spine-webgl 4.1（回退）</option>
+      </select>
+    </label>
+    <label>背景
+      <select id="bgSel">
+        <option value="grid">棋盘格</option>
+        <option value="light" selected>浅灰</option>
+        <option value="dark">深色</option>
+      </select>
+    </label>
+    <span id="stat" class="stat">初始化…</span>
+  </div>
+</header>
+
+<main id="layout">
+  <!-- 左：角色列表 -->
+  <aside id="sidebar">
+    <div class="side-head">
+      <input id="search" type="search" placeholder="搜索角色 / 动画…" autocomplete="off">
+      <div class="side-meta" id="sideMeta">—</div>
+    </div>
+    <div id="charList" class="scroll"></div>
+  </aside>
+
+  <!-- 中：舞台 -->
+  <section id="stage">
+    <div id="canvasWrap">
+      <canvas id="glcanvas"></canvas>
+      <div id="hint" class="hint">双击画面自适应 · 滚轮缩放 · 拖拽平移 · 空格播放/暂停</div>
+      <div id="loading" class="loading hidden">加载中…</div>
+    </div>
+
+    <div id="controls">
+      <div class="row">
+        <label class="ctl">动画
+          <select id="animSel"><option>（无）</option></select>
+        </label>
+        <button id="btnPlay" class="btn primary">暂停</button>
+        <button id="btnFit" class="btn">自适应</button>
+        <button id="btnReset" class="btn">复位</button>
+      </div>
+      <div class="row">
+        <label class="ctl small">速度 <input id="speed" type="range" min="0.1" max="3" step="0.1" value="1"><span id="speedVal">1.0×</span></label>
+        <label class="chk"><input id="loopChk" type="checkbox" checked> 循环</label>
+        <label class="chk"><input id="boneChk" type="checkbox"> 骨骼调试</label>
+        <label class="chk"><input id="slotChk" type="checkbox"> 附件线框</label>
+      </div>
+      <div class="row">
+        <input id="seek" type="range" min="0" max="1000" value="0" class="seek">
+        <span id="timeLabel" class="time">0.00 / 0.00 s</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 右：信息 -->
+  <aside id="infobar">
+    <div class="info-head">骨架信息</div>
+    <div id="info" class="scroll info-body"><div class="muted">左侧选一个角色开始。</div></div>
+  </aside>
+</main>
+
+<div id="toast" class="toast hidden"></div>
+<script src="app.js"></script>
+</body>
+</html>
