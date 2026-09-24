@@ -314,9 +314,20 @@
   }
 
   // ---------------------------------------------------------------- 子弹
+  // 距离衰减：贴脸最疼，越飞越弱。量程要按**实战距离**定，不是按子弹射程：
+  // 屏幕半宽才约 600 世界单位，敌人从屏外 600~820 处刷出还会一直冲到贴脸，
+  // 所以取 160（不到一个身位）吃满 1.7x、1000（一屏开外）降到 0.5x，中间线性过渡。
+  // （一开始取 1400 当远点，结果实测最小伤害只到 1.24x，衰减下限根本够不着。）
+  const DMG_NEAR = 160, DMG_FAR = 1000, DMG_MAX = 1.7, DMG_MIN = 0.5;
+  function falloff(dist) {
+    if (dist <= DMG_NEAR) return DMG_MAX;
+    if (dist >= DMG_FAR) return DMG_MIN;
+    return DMG_MAX + (DMG_MIN - DMG_MAX) * (dist - DMG_NEAR) / (DMG_FAR - DMG_NEAR);
+  }
+
   function shoot(x, y, a) {
     const sp2 = 1750;
-    G.bullets.push({ x, y, vx: Math.cos(a * RAD) * sp2, vy: Math.sin(a * RAD) * sp2,
+    G.bullets.push({ x, y, x0: x, y0: y, vx: Math.cos(a * RAD) * sp2, vy: Math.sin(a * RAD) * sp2,
       t: 1.1, dmg: G.damage });
     muzzleFlash(x, y, a);
     G.shake = Math.max(G.shake, 1.6);
@@ -343,11 +354,12 @@
       if (hit) {
         b.t = 0;
         const dirx = Math.sign(b.vx) || 1;
-        blood(nx, ny, 9, dirx);
+        const mul = falloff(Math.hypot(nx - b.x0, ny - b.y0));   // 飞行距离越近越疼
+        blood(nx, ny, Math.round(6 + 7 * mul), dirx);
         spark(nx, ny, 6);
-        shock(nx, ny, 4, 26, '255,240,200');
+        shock(nx, ny, 4, 20 + 16 * mul, '255,240,200');
         G.hitstop = Math.max(G.hitstop, 0.028);
-        const dead = hit.hurt(b.dmg, dirx, 150);
+        const dead = hit.hurt(b.dmg * mul, dirx, 150);
         if (dead) {
           G.kills++; G.combo++; G.comboT = 2.2;
           G.shake = Math.max(G.shake, hit.boss ? 14 : 5.5);
