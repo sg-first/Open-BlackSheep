@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>横板射击 · 持枪动画 Demo（nanzhu）</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #a3abb3; color: #dfe6f2;
+    font: 13px/1.6 "Segoe UI", "Microsoft YaHei", sans-serif; overflow: hidden; }
+  #stage { position: fixed; inset: 0; }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  #fx { pointer-events: none; }
+
+  .panel { position: fixed; background: rgba(16,20,28,.82); border: 1px solid #2a3446;
+    border-radius: 8px; padding: 10px 12px; backdrop-filter: blur(6px); }
+  #hud { left: 14px; top: 14px; min-width: 210px; }
+  #hud .row { display: flex; justify-content: space-between; gap: 12px; }
+  #hud .k { color: #7d8ca6; }
+  #hud .v { color: #eaf1ff; font-variant-numeric: tabular-nums; }
+  #ammo { font-size: 22px; font-weight: 600; letter-spacing: .5px; }
+  #ammo.low { color: #ff7a6b; }
+  #state { color: #ffc46b; }
+
+  #help { left: 14px; bottom: 14px; color: #93a2bd; }
+  #help b { color: #eaf1ff; font-weight: 600; }
+  #help kbd { background: #22304a; border: 1px solid #35486c; border-bottom-width: 2px;
+    border-radius: 4px; padding: 0 5px; font: 12px Consolas, monospace; color: #cfe0ff; }
+
+  #cfg { right: 14px; top: 14px; width: 232px; }
+  #cfg h4 { margin: 0 0 8px; font-size: 12px; color: #7d8ca6; font-weight: 600; letter-spacing: 1px; }
+  #cfg label { display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin: 5px 0; color: #b8c6de; }
+  #cfg input[type=range] { width: 108px; }
+  #cfg .chk { justify-content: flex-start; gap: 6px; cursor: pointer; }
+  #cfg select { background: #1a2230; color: #dfe6f2; border: 1px solid #33415c; border-radius: 4px; }
+
+  #load { position: fixed; inset: 0; display: grid; place-content: center; background: #a3abb3;
+    color: #4a5568; font-size: 14px; z-index: 9; }
+  #load.hidden { display: none; }
+  .err { color: #a2242a; max-width: 60ch; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="gl"></canvas>
+  <canvas id="fx"></canvas>
+</div>
+
+<div id="hud" class="panel">
+  <div class="row"><span class="k">状态</span><span class="v" id="state">—</span></div>
+  <div class="row"><span class="k">弹药</span><span class="v" id="ammo">30 / 30</span></div>
+  <div class="row"><span class="k">上半身</span><span class="v" id="upper">—</span></div>
+  <div class="row"><span class="k">下半身</span><span class="v" id="lower">—</span></div>
+  <div class="row"><span class="k">瞄准</span><span class="v" id="aimv">0°</span></div>
+  <div class="row"><span class="k">脚底/地面</span><span class="v" id="dbg2">—</span></div>
+  <div class="row"><span class="k">手臂 IK</span><span class="v" id="dbg3">—</span></div>
+</div>
+
+<div id="cfg" class="panel">
+  <h4>调试</h4>
+  <label class="chk"><input type="checkbox" id="cBones"> 显示骨骼 / IK 目标</label>
+  <label class="chk"><input type="checkbox" id="cTrail"> 枪口轨迹</label>
+  <label class="chk"><input type="checkbox" id="cSlow"> 慢动作 0.35×</label>
+  <label>肘部朝向 <select id="cBend">
+    <option value="0">朝下</option><option value="1">朝上</option></select></label>
+  <label>瞄准阻尼 <input type="range" id="cDamp" min="4" max="40" value="20"></label>
+  <label>持枪距离 <input type="range" id="cGrip" min="240" max="440" value="340"></label>
+  <label>持枪高度 <input type="range" id="cHigh" min="-60" max="180" value="40"></label>
+  <label>角色缩放 <input type="range" id="cScale" min="40" max="320" value="95"></label>
+</div>
+
+<div id="help" class="panel">
+  <b>操作</b>：<kbd>A</kbd><kbd>D</kbd> 移动 · <kbd>Shift</kbd> 跑 · <kbd>空格</kbd> 跳 ·
+  鼠标瞄准 · <kbd>左键</kbd> 射击 · <kbd>R</kbd> 换弹 · <kbd>E</kbd> 枪托近战 ·
+  <kbd>H</kbd> 收/拔枪 · <kbd>F</kbd> 受击 · <kbd>G</kbd> 倒地 · <kbd>↑↓</kbd> 强制瞄角
+</div>
+
+<div id="load">加载骨架与图集…</div>
+
+<script src="../spine_viewer/vendor/spine-webgl.js"></script>
+<script>
+  // 开发期热刷新：每次加载都取最新脚本，避免浏览器缓存住旧逻辑
+  const _s = document.createElement('script');
+  _s.src = 'game.js?t=' + Date.now();
+  document.body.appendChild(_s);
+</script>
+</body>
+</html>
