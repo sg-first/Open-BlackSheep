@@ -1,6 +1,6 @@
 /* Black Sheep Spine 查看器
  * 数据：../characters/<角色>/*.json 骨架 + *.atlas.txt + textures/*.png
- * 运行时：vendor/spine-webgl*.js（3.8 为主，4.x 回退），用 new Function 隔离各自的全局 spine
+ * 运行时：vendor/spine-webgl.js（Spine 3.8），用 new Function 隔离全局 spine
  */
 (function () {
   'use strict';
@@ -511,16 +511,6 @@
       en.trackTime = (parseFloat(e.target.value) / 1000) * en.animation.duration;
       S.animState.apply(S.skeleton);
       S.skeleton.updateWorldTransform();
-    });
-    $('runtimeSel').addEventListener('change', async e => {
-      try {
-        status('切换运行时…');
-        S.rt = await loadRuntime(e.target.value);
-        S.rtFile = e.target.value;
-        setupGL();
-        if (S.cur) await loadVariant(S.cur, S.curChar);
-        toast('运行时 → ' + e.target.value);
-      } catch (err) { toast('运行时切换失败：' + err.message); }
     });
     $('bgSel').addEventListener('change', () => render());
     window.addEventListener('keydown', e => {
